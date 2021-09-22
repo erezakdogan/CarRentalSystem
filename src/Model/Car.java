@@ -5,14 +5,16 @@ import java.util.Objects;
 
 public class Car {
     private String make;
+    private String type;
     private int dailyPrice, carCount;
     private Period pricePeriod,avaiblePeriod;
 
     public Car() {
     }
 
-    public Car(String make, int dailyPrice, int carCount, Period pricePeriod, Period avaiblePeriod) {
+    public Car(String make,String type, int dailyPrice, int carCount, Period pricePeriod, Period avaiblePeriod) {
         this.make = make;
+        this.type = type;
         this.dailyPrice = dailyPrice;
         this.carCount = carCount;
         this.pricePeriod = pricePeriod;
@@ -82,6 +84,19 @@ public class Car {
 
     public Car avaiblePeriod(Period avaiblePeriod) {
         setAvaiblePeriod(avaiblePeriod);
+        return this;
+    }
+    
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Car type(String type) {
+        setType(type);
         return this;
     }
 
