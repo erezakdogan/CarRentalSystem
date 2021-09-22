@@ -24,6 +24,7 @@
                   <Image url="@../../Icons/Budget_Rent_a_Car-Logo.wine.png" />
                </image>
             </ImageView>
+            <Button fx:id="partnerButton" layoutX="160.0" layoutY="600.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" text="be a partner" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="signinAnchor" layoutX="688.0" layoutY="-43.0" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

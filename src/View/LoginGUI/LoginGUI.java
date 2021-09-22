@@ -10,6 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class LoginGUI {
+    
+    @FXML
+    private Button partnerButton;
 
     @FXML
     private ResourceBundle resources;
@@ -51,6 +54,7 @@ public class LoginGUI {
         assert signinForg != null : "fx:id=\"signinForg\" was not injected: check your FXML file 'LoginGUI.fxml'.";
         assert signinCreate != null : "fx:id=\"signinCreate\" was not injected: check your FXML file 'LoginGUI.fxml'.";
         assert signinButton != null : "fx:id=\"signinButton\" was not injected: check your FXML file 'LoginGUI.fxml'.";
+        assert partnerButton != null : "fx:id=\"signinButton\" was not injected: check your FXML file 'LoginGUI.fxml'.";
 
     }
 }
