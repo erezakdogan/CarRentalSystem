@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="signupAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignUpGUI.SignUpGUI">
+   <children>
+      <Label layoutX="126.0" layoutY="125.0" text="Sign Up" />
+      <Button fx:id="signupGoogle" alignment="CENTER" layoutX="117.0" layoutY="176.0" mnemonicParsing="false" prefWidth="369.0" text="Sign up with Google" textAlignment="CENTER">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <Separator layoutX="117.0" layoutY="255.0" prefHeight="0.0" prefWidth="370.0" />
+      <Label alignment="CENTER" layoutX="232.0" layoutY="246.0" prefHeight="18.0" prefWidth="138.0" style="-fx-background-color: white;" text="or Sign up with Email" />
+      <TextField fx:id="signupName" layoutX="117.0" layoutY="348.0" prefHeight="38.0" prefWidth="370.0" promptText="Name" />
+      <TextField fx:id="signupMail" layoutX="117.0" layoutY="427.0" prefHeight="38.0" prefWidth="370.0" promptText="mail@gamil.com" />
+      <TextField fx:id="signupPass" layoutX="116.0" layoutY="502.0" prefHeight="38.0" prefWidth="370.0" promptText="Min. 8 characters" />
+      <Label layoutX="117.0" layoutY="322.0" text="Name">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="483.0" text="Password">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="408.0" text="E-mail">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="signupButton" alignment="CENTER" layoutX="117.0" layoutY="592.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="370.0" text="Sign Up" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="217.0" layoutY="554.0" style="-fx-background-color: white;" text="Terms &amp; Conditions" />
+      <CheckBox fx:id="signupTerms" layoutX="118.0" layoutY="554.0" mnemonicParsing="false" text="I Agree to the " />
+      <Label alignment="CENTER" layoutX="120.0" layoutY="673.0" style="-fx-background-color: white;" text="2021 Erez Akdogan">
+         <font>
+            <Font name="Calibri Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
