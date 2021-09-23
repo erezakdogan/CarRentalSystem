@@ -25,7 +25,7 @@
                </image>
             </ImageView>
             <Label fx:id="nameLabel" layoutX="106.0" layoutY="190.0" text="Label" />
-            <VBox layoutX="9.0" layoutY="245.0" prefWidth="222.0" spacing="5.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.599999999999994">
+            <VBox layoutX="9.0" layoutY="245.0" prefWidth="222.0" spacing="5.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0">
                <children>
                   <Button fx:id="searchButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Search" />
                   <Button fx:id="rentsHistoryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Rents History" />
