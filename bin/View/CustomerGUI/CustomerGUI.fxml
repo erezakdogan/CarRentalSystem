@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CustomerGUI.CustomerGUI">
    <left>
       <AnchorPane prefHeight="720.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,17 +24,17 @@
                   <Image url="@../../../Icons/Budget_Rent_a_Car-Logo.wine.png" />
                </image>
             </ImageView>
-            <Label layoutX="106.0" layoutY="190.0" text="Label" />
+            <Label fx:id="nameLabel" layoutX="106.0" layoutY="190.0" text="Label" />
             <VBox layoutX="9.0" layoutY="245.0" prefWidth="222.0" spacing="5.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.599999999999994">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Search" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Rents History" />
+                  <Button fx:id="searchButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Search" />
+                  <Button fx:id="rentsHistoryButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Rents History" />
                </children>
             </VBox>
             <VBox layoutX="6.0" layoutY="631.0" prefHeight="67.0" prefWidth="227.0" spacing="5.0">
                <children>
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="My Profile" />
-                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Log out" />
+                  <Button fx:id="myProfileButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="My Profile" />
+                  <Button fx:id="customerLogoutButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="33.0" prefWidth="222.0" text="Log out" />
                </children>
             </VBox>
          </children>
@@ -59,7 +59,7 @@
                   <Label layoutX="272.0" layoutY="2.0" text="Arrival" />
                   <Label layoutX="450.0" layoutY="2.0" text="Departure" />
                   <Label layoutX="675.0" layoutY="2.0" text="Vehicle" />
-                  <Button layoutX="826.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 50;" />
+                  <Button fx:id="buttonSearchRents" layoutX="826.0" layoutY="12.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 50;" />
                   <Separator layoutX="219.0" layoutY="3.0" orientation="VERTICAL" prefHeight="58.0" prefWidth="0.0">
                      <padding>
                         <Insets bottom="8.0" top="8.0" />
@@ -70,10 +70,10 @@
                         <Insets bottom="8.0" top="8.0" />
                      </padding>
                   </Separator>
-                  <TextField layoutX="56.0" layoutY="21.0" prefHeight="26.0" prefWidth="144.0" promptText="Berlin" />
-                  <DatePicker layoutX="272.0" layoutY="21.0" prefHeight="26.0" prefWidth="141.0" />
-                  <DatePicker layoutX="450.0" layoutY="21.0" prefHeight="26.0" prefWidth="141.0" />
-                  <ComboBox layoutX="675.0" layoutY="21.0" prefHeight="26.0" prefWidth="132.0" />
+                  <TextField fx:id="searchCity" layoutX="56.0" layoutY="21.0" prefHeight="26.0" prefWidth="144.0" promptText="Berlin" />
+                  <DatePicker fx:id="dateArrival" layoutX="272.0" layoutY="21.0" prefHeight="26.0" prefWidth="141.0" />
+                  <DatePicker fx:id="dateDeparture" layoutX="450.0" layoutY="21.0" prefHeight="26.0" prefWidth="141.0" />
+                  <ComboBox fx:id="typeVehicle" layoutX="675.0" layoutY="21.0" prefHeight="26.0" prefWidth="132.0" />
                </children>
             </AnchorPane>
          </children>
