@@ -64,21 +64,20 @@ public class SignUpGUI {
         assert signupTerms != null : "fx:id=\"signupTerms\" was not injected: check your FXML file 'SignUpGUI.fxml'.";
         addressLabel.setVisible(false);
         signUpAddress.setVisible(false);
-        if (isFirm) {
-            addressLabel.setVisible(true);
-            signUpAddress.setVisible(true);
-        }
+ 
         initButtons();
     }
 
     private void initButtons() {
         signupButton.setOnAction(arg0 -> {
-            addUser();
-            goToSignIn();
+            if (addUser()) {
+                goToSignIn();
+            }
         });
     }
 
-    private void addUser() {
+    private boolean addUser() {
+        boolean userAdded = false;
         if (signupMail.getText().length() != 0 && signupName.getText().length() != 0
                 && signupPass.getText().length() != 0 || signUpAddress.getText().length() != 0) {
             if (signupTerms.isSelected()) {
@@ -88,6 +87,7 @@ public class SignUpGUI {
                     Firm.addFirm(signupName.getText(), signupMail.getText(), signupPass.getText(),
                             signUpAddress.getText());
                 }
+                userAdded = true;
             } else {
                 JOptionPane.showMessageDialog(null, "Terms&Conditions must be accepted.", "Not eccepted error",
                         JOptionPane.ERROR_MESSAGE);
@@ -96,6 +96,8 @@ public class SignUpGUI {
             JOptionPane.showMessageDialog(null, "Fill the personal information fields", "Blank fields error",
                     JOptionPane.ERROR_MESSAGE);
         }
+        return userAdded;
+
     }
 
     private void goToSignIn() {
@@ -111,6 +113,9 @@ public class SignUpGUI {
 
     public void isFirm(Boolean isFirm) {
         this.isFirm = isFirm;
+        
+        addressLabel.setVisible(true);
+        signUpAddress.setVisible(true);
     }
 
 }

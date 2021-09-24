@@ -1,6 +1,9 @@
 package Model;
 
 import java.util.Objects;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import Helpers.DBConnector;
 
 public class Firm {
     private String firmName, firmAddres,firmPhone,firmMail;
@@ -93,7 +96,19 @@ public class Firm {
             "}";
     }
 
-    public static void addFirm(String text, String text2, String text3, String text4) {
+    public static void addFirm(String name, String mail, String pass, String address) {
+        String query = "INSERT INTO firms (name,mail,pass,address) VALUES(?,?,?,?)";
+
+        try {
+            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, mail);
+            preparedStatement.setString(3, pass);
+            preparedStatement.setString(4, address);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
 }
