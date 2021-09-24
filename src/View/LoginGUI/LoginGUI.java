@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
+import View.SignUpGUI.SignUpGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -14,8 +15,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.Scene; 
 import javafx.scene.layout.BorderPane;
 
 public class LoginGUI {
@@ -105,5 +105,19 @@ public class LoginGUI {
 
         });
 
+        signinGoogle.setOnAction(arg0->{
+
+        });
+        partnerButton.setOnAction(arg0->{
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(SignUpGUI.class.getResource("SignUpGUI.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                AnchorPane mainAnPane = (AnchorPane) signinAnchor;
+                mainAnPane.getChildren().removeAll();
+                mainAnPane.getChildren().add(anchorPane);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
     }
 }

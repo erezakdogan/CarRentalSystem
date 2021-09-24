@@ -1,7 +1,5 @@
 package View.CustomerGUI;
-
-import java.io.IOError;
-import java.io.IOException;
+ 
 import java.net.URL;
 import java.util.ResourceBundle;
 
