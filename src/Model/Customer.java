@@ -3,7 +3,9 @@ package Model;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
+import java.util.ArrayList;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import Helpers.DBConnector;
 
 public class Customer {
@@ -121,6 +123,28 @@ public class Customer {
         } catch (SQLException e) {
             System.out.println(e.getSQLState());
         }
+    }
+
+    public static ArrayList<Customer> getCustomers() {
+        ArrayList<Customer> customers = new ArrayList<>();
+        Customer customer;
+        String query = "SELECT * FROM customers";
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                String name = resultSet.getString("name");
+                String phone = resultSet.getString("phone");
+                String mail = resultSet.getString("mail");
+                String pass = resultSet.getString("pass");
+                String identity = resultSet.getString("identity");
+                customer = new Customer( name,  mail,  pass,  phone,  identity);
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return customers;
     }
 
 }

@@ -28,70 +28,7 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="signinAnchor" layoutX="688.0" layoutY="-43.0" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label alignment="CENTER" layoutX="125.0" layoutY="64.0" text="Login" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas" size="44.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="127.0" layoutY="118.0" text="Amazing car for low budget price" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="signinGoogle" layoutX="130.0" layoutY="191.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="440.0" style="-fx-background-color: white; -fx-border-color: GREY; -fx-border-radius: 30;" text="Sign in with Google" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="190.0">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Separator layoutX="138.0" layoutY="277.0" prefHeight="0.0" prefWidth="424.0" />
-            <Label alignment="CENTER" layoutX="231.0" layoutY="267.0" prefHeight="22.0" prefWidth="238.0" style="-fx-background-color: white;" text="or Sign in with Email" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas" size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="136.0" layoutY="324.0" style="-fx-background-color: white;" text="Email" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="136.0" layoutY="414.0" style="-fx-background-color: white;" text="Password" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="signinMail" layoutX="138.0" layoutY="346.0" prefHeight="42.0" prefWidth="424.0" promptText="mail@website.com" />
-            <TextField fx:id="signinPass" layoutX="138.0" layoutY="436.0" prefHeight="42.0" prefWidth="424.0" promptText="Min. 8 character" />
-            <CheckBox fx:id="signinRem" layoutX="138.0" layoutY="497.0" mnemonicParsing="false" text="Remember Me" />
-            <Label fx:id="signinForg" alignment="CENTER" layoutX="447.0" layoutY="497.0" style="-fx-background-color: white; -fx-text-fill: #0D38F7;" text="Forgot password?" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="13.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="138.0" layoutY="544.0" style="-fx-background-color: white;" text="Not registered yet? " textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="signinCreate" alignment="CENTER" layoutX="270.0" layoutY="544.0" style="-fx-background-color: white;" text="Create an Account" textAlignment="CENTER" textFill="#0d38f7" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="12.0" />
-               </font>
-            </Label>
-            <Button fx:id="signinButton" layoutX="136.0" layoutY="566.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="440.0" style="-fx-background-color: white; -fx-border-color: GREY; -fx-border-radius: 30;" text="Login">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Label alignment="CENTER" layoutX="138.0" layoutY="681.0" style="-fx-background-color: white;" text="2021 Erez Akdogan" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Consolas Bold" size="12.0" />
-               </font>
-            </Label>
-         </children>
+      
        </AnchorPane>
    </children>
 </AnchorPane>

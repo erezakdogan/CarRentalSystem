@@ -1,21 +1,41 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+
 import Helpers.DBConnector;
 
 public class Firm {
-    private String firmName, firmAddres,firmPhone,firmMail;
+    private String firmName, firmAddres, firmPhone, firmMail, pass;
 
     public Firm() {
+
     }
 
-    public Firm(String firmName, String firmAddres, String firmPhone, String firmMail) {
+    public Firm(String firmName, String firmAddres, String firmPhone, String firmMail, String pass) {
         this.firmName = firmName;
         this.firmAddres = firmAddres;
         this.firmPhone = firmPhone;
         this.firmMail = firmMail;
+        this.pass = pass;
+
+    }
+
+    public String getPass() {
+        return this.pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public Firm pass(String pass) {
+        setPass(pass);
+        return this;
     }
 
     public String getFirmName() {
@@ -78,7 +98,8 @@ public class Firm {
             return false;
         }
         Firm firm = (Firm) o;
-        return Objects.equals(firmName, firm.firmName) && Objects.equals(firmAddres, firm.firmAddres) && Objects.equals(firmPhone, firm.firmPhone) && Objects.equals(firmMail, firm.firmMail);
+        return Objects.equals(firmName, firm.firmName) && Objects.equals(firmAddres, firm.firmAddres)
+                && Objects.equals(firmPhone, firm.firmPhone) && Objects.equals(firmMail, firm.firmMail);
     }
 
     @Override
@@ -88,12 +109,8 @@ public class Firm {
 
     @Override
     public String toString() {
-        return "{" +
-            " firmName='" + getFirmName() + "'" +
-            ", firmAddres='" + getFirmAddres() + "'" +
-            ", firmPhone='" + getFirmPhone() + "'" +
-            ", firmMail='" + getFirmMail() + "'" +
-            "}";
+        return "{" + " firmName='" + getFirmName() + "'" + ", firmAddres='" + getFirmAddres() + "'" + ", firmPhone='"
+                + getFirmPhone() + "'" + ", firmMail='" + getFirmMail() + "'" + "}";
     }
 
     public static void addFirm(String name, String mail, String pass, String address) {
@@ -110,5 +127,27 @@ public class Firm {
             System.out.println(e.getMessage());
         }
     }
-    
+
+    public static ArrayList<Firm> getFirms() {
+        ArrayList<Firm> firms = new ArrayList<>();
+        Firm firm;
+        String query = "SELECT * FROM firms";
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                String firmName = resultSet.getString("name");
+                String firmAddres = resultSet.getString("address");
+                String firmPhone = resultSet.getString("phone");
+                String firmMail = resultSet.getString("mail");
+                String pass = resultSet.getString("pass");
+                firm = new Firm(firmName, firmAddres, firmPhone, firmMail, pass);
+                firms.add(firm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return firms;
+    }
+
 }
