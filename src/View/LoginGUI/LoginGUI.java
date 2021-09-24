@@ -112,9 +112,10 @@ public class LoginGUI {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(SignUpGUI.class.getResource("SignUpGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-                AnchorPane mainAnPane = (AnchorPane) signinAnchor;
-                mainAnPane.getChildren().removeAll();
-                mainAnPane.getChildren().add(anchorPane);
+                SignUpGUI signUpGUI = (SignUpGUI) fxmlLoader.getController();
+                signUpGUI.isFirm(true);
+                signinAnchor.getChildren().removeAll();
+                signinAnchor.getChildren().add(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

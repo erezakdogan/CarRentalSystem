@@ -2,7 +2,12 @@ package View.LoginGUI.SignInGUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.postgresql.util.LruCache.CreateAction;
+
+import View.SignUpGUI.SignUpGUI;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -51,6 +56,21 @@ public class SignInGUI {
         assert signinForg != null : "fx:id=\"signinForg\" was not injected: check your FXML file 'SignInGUI.fxml'.";
         assert signinCreate != null : "fx:id=\"signinCreate\" was not injected: check your FXML file 'SignInGUI.fxml'.";
         assert signinButton != null : "fx:id=\"signinButton\" was not injected: check your FXML file 'SignInGUI.fxml'.";
-
+        initButtons();
     }
+
+    private void initButtons() {
+        signinCreate.setOnMouseClicked(arg0 -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(SignUpGUI.class.getResource("SignUpGUI.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                
+                signinAnchor.getChildren().removeAll();
+                signinAnchor.getChildren().add(anchorPane);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+    }
+
 }

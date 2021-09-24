@@ -92,5 +92,8 @@ public class Firm {
             ", firmMail='" + getFirmMail() + "'" +
             "}";
     }
+
+    public static void addFirm(String text, String text2, String text3, String text4) {
+    }
     
 }

@@ -19,30 +19,36 @@
       </Button>
       <Separator layoutX="117.0" layoutY="255.0" prefHeight="0.0" prefWidth="370.0" />
       <Label alignment="CENTER" layoutX="232.0" layoutY="246.0" prefHeight="18.0" prefWidth="138.0" style="-fx-background-color: white;" text="or Sign up with Email" />
-      <TextField fx:id="signupName" layoutX="117.0" layoutY="348.0" prefHeight="38.0" prefWidth="370.0" promptText="Name" />
-      <TextField fx:id="signupMail" layoutX="117.0" layoutY="427.0" prefHeight="38.0" prefWidth="370.0" promptText="mail@gamil.com" />
-      <TextField fx:id="signupPass" layoutX="116.0" layoutY="502.0" prefHeight="38.0" prefWidth="370.0" promptText="Min. 8 characters" />
-      <Label layoutX="117.0" layoutY="322.0" text="Name">
+      <TextField fx:id="signupName" layoutX="116.0" layoutY="301.0" prefHeight="38.0" prefWidth="370.0" promptText="Name" />
+      <TextField fx:id="signupMail" layoutX="117.0" layoutY="379.0" prefHeight="38.0" prefWidth="370.0" promptText="mail@gamil.com" />
+      <TextField fx:id="signupPass" layoutX="117.0" layoutY="449.0" prefHeight="38.0" prefWidth="370.0" promptText="Min. 8 characters" />
+      <Label layoutX="118.0" layoutY="282.0" text="Name">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="117.0" layoutY="483.0" text="Password">
+      <Label layoutX="118.0" layoutY="430.0" text="Password">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="117.0" layoutY="408.0" text="E-mail">
+      <Label layoutX="116.0" layoutY="360.0" text="E-mail">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
       <Button fx:id="signupButton" alignment="CENTER" layoutX="117.0" layoutY="592.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="370.0" text="Sign Up" textAlignment="CENTER" />
-      <Label alignment="CENTER" layoutX="217.0" layoutY="554.0" style="-fx-background-color: white;" text="Terms &amp; Conditions" />
-      <CheckBox fx:id="signupTerms" layoutX="118.0" layoutY="554.0" mnemonicParsing="false" text="I Agree to the " />
+      <Label alignment="CENTER" layoutX="217.0" layoutY="563.0" style="-fx-background-color: white;" text="Terms &amp; Conditions" />
+      <CheckBox fx:id="signupTerms" layoutX="118.0" layoutY="563.0" mnemonicParsing="false" text="I Agree to the " />
       <Label alignment="CENTER" layoutX="120.0" layoutY="673.0" style="-fx-background-color: white;" text="2021 Erez Akdogan">
          <font>
             <Font name="Calibri Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="signUpAddress" layoutX="117.0" layoutY="515.0" prefHeight="38.0" prefWidth="370.0" promptText="Berlin" />
+      <Label fx:id="addressLabel" layoutX="118.0" layoutY="495.0" text="Address">
+         <font>
+            <Font name="System Bold" size="13.0" />
          </font>
       </Label>
    </children>

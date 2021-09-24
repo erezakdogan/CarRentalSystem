@@ -107,5 +107,8 @@ public class Customer {
             ", identity='" + getIdentity() + "'" +
             "}";
     }
+
+    public static void addCustomer(String text, String text2, String text3) {
+    }
     
 }
