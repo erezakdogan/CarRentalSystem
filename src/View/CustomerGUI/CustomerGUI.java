@@ -12,13 +12,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-
+import View.CustomerGUI.SearchGUI.SearchGUI;
 public class CustomerGUI {
 
         @FXML
@@ -87,19 +84,30 @@ public class CustomerGUI {
                 assert borderPane != null
                                 : "fx:id=\"typeVehicle\" was not injected: check your FXML file 'CustomerGUI.fxml'.";
                 initButtons();
+             
+        }
+
+        private void initButtons() {
                 rentsHistoryButton.setOnAction(arg0 -> {
                         try {
                                 FXMLLoader fxmlLoader = new FXMLLoader(RentsGUI.class.getResource("RentsGUI.fxml"));
-                                AnchorPane anchorPane1 = fxmlLoader.load();
-                                borderPane.setCenter(anchorPane1);
+                                AnchorPane anchorPane = fxmlLoader.load();
+                                borderPane.setCenter(anchorPane);
                         } catch (Exception e) {
                                 System.out.println(e.getMessage());
                         }
 
                 });
-        }
 
-        private void initButtons() {
-               
+                searchButton.setOnAction(arg0->{
+                        try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(SearchGUI.class.getResource("SearchGUI.fxml"));
+                                AnchorPane anchorPane = fxmlLoader.load();
+                                borderPane.setCenter(anchorPane);
+                        } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                        }
+
+                });
         }
 }
