@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import View.CustomerGUI.CustomerGUI;
+import View.FirmGUI.FirmGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -69,17 +70,35 @@ public class LoginGUI {
     private void initButtons() {
 
         signinButton.setOnAction(arg0 -> {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(CustomerGUI.class.getResource("CustomerGUI.fxml"));
-                BorderPane anchorPane = fxmlLoader.load();
-                Scene scene = new Scene(anchorPane);
-                Stage arg1 = new Stage();
-                arg1.setScene(scene);
-                arg1.setTitle("Customer Window");
-                arg1.show();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            if (signinMail.getText().equals("c")) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(CustomerGUI.class.getResource("CustomerGUI.fxml"));
+                    BorderPane borderPane = fxmlLoader.load();
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(CustomerGUI.class.getResource("SearchGUI/SearchGUI.fxml"));
+                    AnchorPane borderPane2 = fxmlLoader2.load();
+                    borderPane.setCenter(borderPane2);
+                    Scene scene = new Scene(borderPane);
+                    Stage arg1 = new Stage();
+                    arg1.setScene(scene);
+                    arg1.setTitle("Customer Window");
+                    arg1.show();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }else if(signinMail.getText().equals("f")){
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("FirmGUI.fxml"));
+                    BorderPane anchorPane = fxmlLoader.load();
+                    Scene scene = new Scene(anchorPane);
+                    Stage arg1 = new Stage();
+                    arg1.setScene(scene);
+                    arg1.setTitle("Firm Window");
+                    arg1.show();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
+
         });
 
     }
