@@ -64,7 +64,7 @@ public class SignInGUI {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(SignUpGUI.class.getResource("SignUpGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-                
+
                 signinAnchor.getChildren().removeAll();
                 signinAnchor.getChildren().add(anchorPane);
             } catch (Exception e) {

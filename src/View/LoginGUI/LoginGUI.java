@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene; 
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 public class LoginGUI {
@@ -105,10 +105,10 @@ public class LoginGUI {
 
         });
 
-        signinGoogle.setOnAction(arg0->{
+        signinGoogle.setOnAction(arg0 -> {
 
         });
-        partnerButton.setOnAction(arg0->{
+        partnerButton.setOnAction(arg0 -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(SignUpGUI.class.getResource("SignUpGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();

@@ -78,16 +78,15 @@ public class SignUpGUI {
         });
     }
 
-    
-
     private void addUser() {
         if (signupMail.getText().length() != 0 && signupName.getText().length() != 0
                 && signupPass.getText().length() != 0 || signUpAddress.getText().length() != 0) {
             if (signupTerms.isSelected()) {
                 if (!isFirm) {
                     Customer.addCustomer(signupName.getText(), signupMail.getText(), signupPass.getText());
-                }else{
-                    Firm.addFirm(signupName.getText(), signupMail.getText(), signupPass.getText(),signUpAddress.getText());
+                } else {
+                    Firm.addFirm(signupName.getText(), signupMail.getText(), signupPass.getText(),
+                            signUpAddress.getText());
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Terms&Conditions must be accepted.", "Not eccepted error",

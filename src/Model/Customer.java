@@ -1,9 +1,13 @@
 package Model;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
+import Helpers.DBConnector;
+
 public class Customer {
-    private String name,mail,pass,phone,identity;
+    private String name, mail, pass, phone, identity;
 
     public Customer() {
     }
@@ -89,7 +93,9 @@ public class Customer {
             return false;
         }
         Customer customer = (Customer) o;
-        return Objects.equals(name, customer.name) && Objects.equals(mail, customer.mail) && Objects.equals(pass, customer.pass) && Objects.equals(phone, customer.phone) && Objects.equals(identity, customer.identity);
+        return Objects.equals(name, customer.name) && Objects.equals(mail, customer.mail)
+                && Objects.equals(pass, customer.pass) && Objects.equals(phone, customer.phone)
+                && Objects.equals(identity, customer.identity);
     }
 
     @Override
@@ -99,16 +105,22 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "{" +
-            " name='" + getName() + "'" +
-            ", mail='" + getMail() + "'" +
-            ", pass='" + getPass() + "'" +
-            ", phone='" + getPhone() + "'" +
-            ", identity='" + getIdentity() + "'" +
-            "}";
+        return "{" + " name='" + getName() + "'" + ", mail='" + getMail() + "'" + ", pass='" + getPass() + "'"
+                + ", phone='" + getPhone() + "'" + ", identity='" + getIdentity() + "'" + "}";
     }
 
-    public static void addCustomer(String text, String text2, String text3) {
+    public static void addCustomer(String name, String mail, String pass) {
+        String query = "INSERT INTO customers (name,mail,pass) VALUES(?,?,?)";
+
+        try {
+            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, mail);
+            preparedStatement.setString(3, pass);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getSQLState());
+        }
     }
-    
+
 }

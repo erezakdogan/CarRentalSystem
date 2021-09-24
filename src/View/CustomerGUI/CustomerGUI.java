@@ -1,5 +1,5 @@
 package View.CustomerGUI;
- 
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import View.CustomerGUI.SearchGUI.SearchGUI;
+
 public class CustomerGUI {
 
         @FXML
@@ -82,7 +83,7 @@ public class CustomerGUI {
                 assert borderPane != null
                                 : "fx:id=\"typeVehicle\" was not injected: check your FXML file 'CustomerGUI.fxml'.";
                 initButtons();
-             
+
         }
 
         private void initButtons() {
@@ -97,7 +98,7 @@ public class CustomerGUI {
 
                 });
 
-                searchButton.setOnAction(arg0->{
+                searchButton.setOnAction(arg0 -> {
                         try {
                                 FXMLLoader fxmlLoader = new FXMLLoader(SearchGUI.class.getResource("SearchGUI.fxml"));
                                 AnchorPane anchorPane = fxmlLoader.load();
