@@ -85,10 +85,14 @@ public class LoginGUI {
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-            }else if(signinMail.getText().equals("f")){
+            } else if (signinMail.getText().equals("f")) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("FirmGUI.fxml"));
                     BorderPane anchorPane = fxmlLoader.load();
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(FirmGUI.class.getResource("MainGUI/MainGUI.fxml"));
+                    AnchorPane anchorPane2 = fxmlLoader2.load();
+                    anchorPane.setCenter(anchorPane2);
+
                     Scene scene = new Scene(anchorPane);
                     Stage arg1 = new Stage();
                     arg1.setScene(scene);
