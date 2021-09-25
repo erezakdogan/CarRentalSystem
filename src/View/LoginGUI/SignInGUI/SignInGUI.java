@@ -82,6 +82,9 @@ public class SignInGUI {
                         FXMLLoader fxmlLoader2 = new FXMLLoader(CustomerGUI.class.getResource("SearchGUI/SearchGUI.fxml"));
                         AnchorPane borderPane2 = fxmlLoader2.load();
                         borderPane.setCenter(borderPane2);
+                        CustomerGUI customerGUI = fxmlLoader.getController();
+                        Customer customerfin = Customer.getCustomers().stream().filter(customer-> customer.getMail().equals(signinMail.getText())).findFirst().orElse(null);
+                        customerGUI.setName(customerfin.getName());
                         Scene scene = new Scene(borderPane);
                         Stage arg1 = new Stage();
                         arg1.setScene(scene);
@@ -97,7 +100,9 @@ public class SignInGUI {
                         FXMLLoader fxmlLoader2 = new FXMLLoader(FirmGUI.class.getResource("MainGUI/MainGUI.fxml"));
                         AnchorPane anchorPane2 = fxmlLoader2.load();
                         anchorPane.setCenter(anchorPane2);
-    
+                        FirmGUI firmGUI = fxmlLoader.getController();
+                        Firm firmFin = Firm.getFirms().stream().filter(firm-> firm.getFirmMail().equals(signinMail.getText())).findFirst().orElse(null);
+                        firmGUI.setName(firmFin.getFirmName());
                         Scene scene = new Scene(anchorPane);
                         Stage arg1 = new Stage();
                         arg1.setScene(scene);

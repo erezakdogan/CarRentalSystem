@@ -109,4 +109,9 @@ public class CustomerGUI {
 
                 });
         }
+
+
+        public void setName(String name){
+        nameLabel.setText(name);
+        }
 }

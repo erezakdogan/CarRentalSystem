@@ -112,4 +112,8 @@ public class FirmGUI {
 
         });
     }
+
+    public void setName(String firmName2) {
+        firmName.setText(firmName2);
+    }
 }
