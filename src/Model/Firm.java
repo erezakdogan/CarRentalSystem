@@ -135,7 +135,7 @@ public class Firm {
         try {
             Statement statement = DBConnector.getInstance().createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 String firmName = resultSet.getString("name");
                 String firmAddres = resultSet.getString("address");
                 String firmPhone = resultSet.getString("phone");
@@ -148,6 +148,20 @@ public class Firm {
             System.out.println(e.getMessage());
         }
         return firms;
+    }
+
+    public static void updateFirm(String text, String id) {
+        String query = "UPDATE firms SET ? = ?";
+
+        try {
+            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
+            preparedStatement.setString(1, text);
+            preparedStatement.setString(2, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

@@ -1,6 +1,5 @@
 package View.FirmGUI.FleetGUI;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -91,6 +90,8 @@ public class FleetGUI {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
+                    ProfileGUI profileGUI = fxmlLoader.getController();
+                    profileGUI.setFirm(firms);
                     fleetAnchor.getChildren().clear();
                     fleetAnchor.getChildren().add(anchorPane);
                 } catch (IOException e) {

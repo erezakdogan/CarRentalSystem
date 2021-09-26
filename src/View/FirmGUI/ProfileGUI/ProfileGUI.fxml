@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.ProfileGUI.ProfileGUI">
+<AnchorPane fx:id = "profileAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.ProfileGUI.ProfileGUI">
    <children>
       <Label layoutX="68.0" layoutY="175.0" text="Address" />
       <Label layoutX="68.0" layoutY="236.0" text="Mail" />
