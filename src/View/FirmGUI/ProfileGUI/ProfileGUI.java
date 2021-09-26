@@ -11,6 +11,7 @@ import javafx.scene.text.Text;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import View.FirmGUI.FleetGUI.FleetGUI;
+
 public class ProfileGUI {
 
     @FXML
@@ -42,7 +43,7 @@ public class ProfileGUI {
 
     @FXML
     private AnchorPane profileAnchor;
-    
+
     Firm firm;
 
     @FXML
@@ -55,16 +56,16 @@ public class ProfileGUI {
         assert about != null : "fx:id=\"about\" was not injected: check your FXML file 'ProfileGUI.fxml'.";
         assert saveButton != null : "fx:id=\"saveButton\" was not injected: check your FXML file 'ProfileGUI.fxml'.";
         initButtons();
-
     }
 
     private void initButtons() {
-        saveButton.setOnAction(arg0->{
+        saveButton.setOnAction(arg0 -> {
+            updateFirm();
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(FleetGUI.class.getResource("FleetGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 FleetGUI fleetGUI = fxmlLoader.getController();
-                fleetGUI.setFirm(firm);
+                fleetGUI.setFirms(firm);
                 profileAnchor.getChildren().clear();
                 profileAnchor.getChildren().add(anchorPane);
             } catch (Exception e) {
@@ -74,22 +75,25 @@ public class ProfileGUI {
     }
 
     public void setFirm(Firm firms) {
-        this.firm=firms;
+        this.firm = firms;
+        setFields();
     }
-    
-    private void setFields(){
+
+    private void setFields() {
         name.setPromptText(firm.getFirmName());
         address.setPromptText(firm.getFirmAddres());
         mail.setPromptText(firm.getFirmMail());
+        phone.setPromptText(firm.getFirmPhone());
         pass.setPromptText("********");
-        phone.setPromptText(firm.getFirmName());
     }
-    private void updateFirm(){
-        TextField[] textFields = {name,address,mail,pass,phone};
-        for(int i = 0; i<textFields.length;i++){
-            
-            if(textFields[i].getText().length()!=0){
-                Firm.updateFirm(textFields[i].getText(),textFields[i].getId());
+
+    private void updateFirm() {
+        TextField[] textFields = { name, address, mail, pass, phone };
+        for (int i = 0; i < textFields.length; i++) {
+
+            if (textFields[i].getText().length() != 0) {
+                System.out.println(firm.getId());
+                Firm.updateFirm(textFields[i].getId(), textFields[i].getText(), firm.getId());
             }
         }
     }

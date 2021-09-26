@@ -8,13 +8,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:id = "profileAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.ProfileGUI.ProfileGUI">
+<AnchorPane fx:id="profileAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.ProfileGUI.ProfileGUI">
    <children>
       <Label layoutX="68.0" layoutY="175.0" text="Address" />
       <Label layoutX="68.0" layoutY="236.0" text="Mail" />
       <Label layoutX="66.0" layoutY="75.0" text="My Profile" />
-      <TextField fx:id="profileName" layoutX="66.0" layoutY="120.0" />
+      <TextField fx:id="name" layoutX="66.0" layoutY="120.0" />
       <TextField fx:id="address" layoutX="66.0" layoutY="193.0" />
       <Group layoutX="84.0" layoutY="366.0" />
       <Label layoutX="66.0" layoutY="102.0" text="Name" />

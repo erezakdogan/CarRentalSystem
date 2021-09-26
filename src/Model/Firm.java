@@ -10,19 +10,30 @@ import java.sql.Statement;
 import Helpers.DBConnector;
 
 public class Firm {
+
+    int id;
     private String firmName, firmAddres, firmPhone, firmMail, pass;
 
     public Firm() {
 
     }
 
-    public Firm(String firmName, String firmAddres, String firmPhone, String firmMail, String pass) {
+    public Firm(int id, String firmName, String firmAddres, String firmPhone, String firmMail, String pass) {
+        this.id = id;
         this.firmName = firmName;
         this.firmAddres = firmAddres;
         this.firmPhone = firmPhone;
         this.firmMail = firmMail;
         this.pass = pass;
 
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPass() {
@@ -141,7 +152,8 @@ public class Firm {
                 String firmPhone = resultSet.getString("phone");
                 String firmMail = resultSet.getString("mail");
                 String pass = resultSet.getString("pass");
-                firm = new Firm(firmName, firmAddres, firmPhone, firmMail, pass);
+                int id = resultSet.getInt("id");
+                firm = new Firm(id, firmName, firmAddres, firmPhone, firmMail, pass);
                 firms.add(firm);
             }
         } catch (SQLException e) {
@@ -150,16 +162,13 @@ public class Firm {
         return firms;
     }
 
-    public static void updateFirm(String text, String id) {
-        String query = "UPDATE firms SET ? = ?";
-
+    public static void updateFirm(String column, String newValue, int id) {
+        String query = "UPDATE firms SET " + column + " = '" + newValue + "' WHERE id = " + id + " ;";
         try {
             PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
-            preparedStatement.setString(1, text);
-            preparedStatement.setString(2, id);
             preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

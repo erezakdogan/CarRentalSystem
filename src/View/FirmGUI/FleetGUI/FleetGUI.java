@@ -84,16 +84,17 @@ public class FleetGUI {
 
     private void initButtons() {
         fleetAddButton.setOnAction(arg0 -> {
-            Firm firms = Firm.getFirms().stream().filter(firm -> firm.getFirmMail().equals(firm.getFirmMail()))
+            Firm firms = Firm.getFirms().stream().filter(predicate -> predicate.getFirmMail().equals(firm.getFirmMail()))
                     .findFirst().orElse(null);
-            if (firms.getFirmPhone() == null) {
+            if (firm.getFirmPhone() == null) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
                     AnchorPane anchorPane = fxmlLoader.load();
                     ProfileGUI profileGUI = fxmlLoader.getController();
-                    profileGUI.setFirm(firms);
                     fleetAnchor.getChildren().clear();
                     fleetAnchor.getChildren().add(anchorPane);
+                    profileGUI.setFirm(firm);
+
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
@@ -101,7 +102,7 @@ public class FleetGUI {
         });
     }
 
-    public void setFirm(Firm firm) {
+    public void setFirms(Firm firm) {
         this.firm = firm;
     }
 }

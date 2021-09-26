@@ -107,7 +107,7 @@ public class FirmGUI {
                 FXMLLoader fxmlLoader = new FXMLLoader(FleetGUI.class.getResource("FleetGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 FleetGUI fleetGUI = fxmlLoader.getController();
-                fleetGUI.setFirm(firm);
+                fleetGUI.setFirms(firm);
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
