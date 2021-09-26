@@ -3,6 +3,7 @@ package View.FirmGUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.Firm;
 import View.FirmGUI.FleetGUI.FleetGUI;
 import View.FirmGUI.MainGUI.MainGUI;
 import View.FirmGUI.RentsGUI.RentsGUI;
@@ -53,7 +54,7 @@ public class FirmGUI {
 
     @FXML
     private BorderPane borderPane;
-
+    Firm firm;
     @FXML
     void initialize() {
         assert firmName != null : "fx:id=\"firmName\" was not injected: check your FXML file 'FirmGUI.fxml'.";
@@ -77,7 +78,7 @@ public class FirmGUI {
 
         initButtons();
     }
-
+    
     private void initButtons() {
         firmMainButton.setOnAction(arg0 -> {
             try {
@@ -105,6 +106,8 @@ public class FirmGUI {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(FleetGUI.class.getResource("FleetGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
+                FleetGUI fleetGUI = fxmlLoader.getController();
+                fleetGUI.setFirm(firm);
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -113,7 +116,8 @@ public class FirmGUI {
         });
     }
 
-    public void setName(String firmName2) {
-        firmName.setText(firmName2);
+    public void setFirm(Firm firm) {
+        this.firm = firm;
+        firmName.setText(firm.getFirmName());
     }
 }

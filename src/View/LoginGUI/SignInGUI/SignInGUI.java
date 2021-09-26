@@ -102,7 +102,7 @@ public class SignInGUI {
                         anchorPane.setCenter(anchorPane2);
                         FirmGUI firmGUI = fxmlLoader.getController();
                         Firm firmFin = Firm.getFirms().stream().filter(firm-> firm.getFirmMail().equals(signinMail.getText())).findFirst().orElse(null);
-                        firmGUI.setName(firmFin.getFirmName());
+                        firmGUI.setFirm(firmFin);
                         Scene scene = new Scene(anchorPane);
                         Stage arg1 = new Stage();
                         arg1.setScene(scene);

@@ -1,12 +1,19 @@
 package View.FirmGUI.FleetGUI;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Firm;
+import View.FirmGUI.ProfileGUI.ProfileGUI;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 public class FleetGUI {
@@ -48,17 +55,52 @@ public class FleetGUI {
     private Button fleetAddButton;
 
     @FXML
-    void initialize() {
-        assert firmFleetGrid != null : "fx:id=\"firmFleetGrid\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert firmFleetMake != null : "fx:id=\"firmFleetMake\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert firmFleetPrice != null : "fx:id=\"firmFleetPrice\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert firmFleetType != null : "fx:id=\"firmFleetType\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert pricePeriodStart != null : "fx:id=\"pricePeriodStart\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert fleetAvailableStart != null : "fx:id=\"fleetAvailableStart\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert pricePeriodEnd != null : "fx:id=\"pricePeriodEnd\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert fleetAvailableEnd != null : "fx:id=\"fleetAvailableEnd\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert fleetCount != null : "fx:id=\"fleetCount\" was not injected: check your FXML file 'FleetGUI.fxml'.";
-        assert fleetAddButton != null : "fx:id=\"fleetAddButton\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+    private AnchorPane fleetAnchor;
 
+    Firm firm;
+
+    @FXML
+    void initialize() {
+        assert firmFleetGrid != null
+                : "fx:id=\"firmFleetGrid\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert firmFleetMake != null
+                : "fx:id=\"firmFleetMake\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert firmFleetPrice != null
+                : "fx:id=\"firmFleetPrice\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert firmFleetType != null
+                : "fx:id=\"firmFleetType\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert pricePeriodStart != null
+                : "fx:id=\"pricePeriodStart\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert fleetAvailableStart != null
+                : "fx:id=\"fleetAvailableStart\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert pricePeriodEnd != null
+                : "fx:id=\"pricePeriodEnd\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert fleetAvailableEnd != null
+                : "fx:id=\"fleetAvailableEnd\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert fleetCount != null : "fx:id=\"fleetCount\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        assert fleetAddButton != null
+                : "fx:id=\"fleetAddButton\" was not injected: check your FXML file 'FleetGUI.fxml'.";
+        initButtons();
+    }
+
+    private void initButtons() {
+        fleetAddButton.setOnAction(arg0 -> {
+            Firm firms = Firm.getFirms().stream().filter(firm -> firm.getFirmMail().equals(firm.getFirmMail()))
+                    .findFirst().orElse(null);
+            if (firms.getFirmPhone() == null) {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
+                    AnchorPane anchorPane = fxmlLoader.load();
+                    fleetAnchor.getChildren().clear();
+                    fleetAnchor.getChildren().add(anchorPane);
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        });
+    }
+
+    public void setFirm(Firm firm) {
+        this.firm = firm;
     }
 }
