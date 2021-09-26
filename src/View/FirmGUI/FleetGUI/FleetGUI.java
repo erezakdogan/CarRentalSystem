@@ -84,8 +84,6 @@ public class FleetGUI {
 
     private void initButtons() {
         fleetAddButton.setOnAction(arg0 -> {
-            Firm firms = Firm.getFirms().stream().filter(predicate -> predicate.getFirmMail().equals(firm.getFirmMail()))
-                    .findFirst().orElse(null);
             if (firm.getFirmPhone() == null) {
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
