@@ -103,4 +103,8 @@ public class FleetGUI {
     public void setFirms(Firm firm) {
         this.firm = firm;
     }
+
+  public void addCar(){
+if(firmFleetMake.getText().length()!=0&&firmFleetPrice.getText().length()!=0&&firmFleetType.getSelectionModel().getSelection()!=null){}
+}
 }
