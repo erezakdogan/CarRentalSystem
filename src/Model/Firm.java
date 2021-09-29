@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 import Helpers.DBConnector;
 
@@ -172,5 +173,7 @@ public class Firm {
             System.out.println(e.getMessage());
         }
     }
+
+   
 
 }
