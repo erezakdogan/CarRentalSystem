@@ -1,15 +1,17 @@
 package Model;
 
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import Helpers.DBConnector;
-
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Car {
+    private int id;
     private String make;
     private String type;
     private int dailyPrice, carCount;
@@ -18,7 +20,8 @@ public class Car {
     public Car() {
     }
 
-    public Car(String make,String type, int dailyPrice, int carCount, Period pricePeriod, Period avaiblePeriod) {
+    public Car(int id, String make,String type, int dailyPrice, int carCount, Period pricePeriod, Period avaiblePeriod) {
+        this.id = id;
         this.make = make;
         this.type = type;
         this.dailyPrice = dailyPrice;
@@ -27,7 +30,9 @@ public class Car {
         this.avaiblePeriod = avaiblePeriod;
         
     }
-
+    public int getId() {
+        return this.dailyPrice;
+    }
     public String getMake() {
         return this.make;
     }
@@ -147,5 +152,52 @@ public class Car {
        } catch (SQLException e) {
            System.out.println(e.getMessage());
        }
+    }
+
+    public static ArrayList<Car> getAvailables(String city, String type, LocalDate arrival, LocalDate departure) {
+        ArrayList<Car> availables = new ArrayList<>();
+        ArrayList<Firm> firm = new ArrayList<>();
+        for(Firm f : Firm.getFirms()){
+            if(f.getFirmAddres().equals(city)){
+                firm.add(f);
+            }
+        }
+
+        String query = "SELECT * FROM  cars WHERE firm_id IN (?) AND type = "+type;
+        Car car;
+        System.out.println(getFirmsInCity(firm));
+        try {
+            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
+            preparedStatement.setString(1, getFirmsInCity(firm));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String make = resultSet.getString("make");
+                String carType = resultSet.getString("type");
+                String dailyPrice = resultSet.getString("daily_price");
+                String carCount = resultSet.getString("car_count");
+                String pricePeriod = resultSet.getString("price_period");
+                String avaiblePeriod = resultSet.getString("avaible_period");
+                car = new Car(id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), Period.parse(pricePeriod), Period.parse(avaiblePeriod));
+                availables.add(car);
+            }
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return availables;
+    }
+
+    private static String getFirmsInCity(ArrayList<Firm> firm) {
+        String firmsInCity = "";
+        for(int i = 0;i<firm.size();i++){
+            if(i!=firm.size()-1){
+                firmsInCity+=(firm.get(i)+",");
+            }else{
+                firmsInCity+=(firm.get(i));
+            }
+        }
+        return firmsInCity;
     }
 }
