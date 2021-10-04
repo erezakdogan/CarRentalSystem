@@ -1,7 +1,6 @@
 package Model;
 
 import java.time.Period;
-import java.time.temporal.TemporalAmount;
 import java.util.Objects;
 
 import Helpers.DBConnector;
@@ -14,7 +13,7 @@ public class Car {
     private String make;
     private String type;
     private int dailyPrice, carCount;
-    private static Period pricePeriod,avaiblePeriod;
+    private Period pricePeriod,avaiblePeriod;
 
     public Car() {
     }
@@ -133,20 +132,20 @@ public class Car {
             ", avaiblePeriod='" + getAvaiblePeriod() + "'" +
             "}";
     }
-    public static void addFleet(int firmId, String make, Object type, String price, String count, LocalDate localDate, LocalDate localDate2, LocalDate localDate3, LocalDate localDate4) {
+    public static void addFleet(int firmId, String make, String type, String price, String count, LocalDate localDate, LocalDate localDate2, LocalDate localDate3, LocalDate localDate4) {
         String query = "INSERT INTO cars (firm_id,make,type,daily_price,car_count,price_period,avaible_period) VALUES(?,?,?,?,?,?,?);";
-        Car car = new Car();
        try {
         PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
         preparedStatement.setInt(1, firmId);
         preparedStatement.setString(2, make);
-        preparedStatement.setString(3, type.toString());
+        preparedStatement.setString(3, type);
         preparedStatement.setString(4, price);
         preparedStatement.setString(5, count);
         preparedStatement.setString(6, localDate+"/"+localDate2);
-        preparedStatement.setString(2, localDate3+"/"+localDate4);
+        preparedStatement.setString(7, localDate3+"/"+localDate4);
         preparedStatement.executeUpdate();
        } catch (SQLException e) {
+           System.out.println(e.getMessage());
        }
     }
 }

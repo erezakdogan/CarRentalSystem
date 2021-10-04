@@ -9,19 +9,14 @@ import javax.swing.JOptionPane;
 import Model.Car;
 import Model.Firm;
 import View.FirmGUI.ProfileGUI.ProfileGUI;
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.input.DragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.Node;
 
 public class FleetGUI {
 
@@ -41,7 +36,7 @@ public class FleetGUI {
         private TextField firmFleetPrice;
 
         @FXML
-        private ComboBox<?> firmFleetType;
+        private ComboBox<String> firmFleetType;
 
         @FXML
         private DatePicker pricePeriodStart;
@@ -89,6 +84,7 @@ public class FleetGUI {
                 assert fleetAddButton != null
                                 : "fx:id=\"fleetAddButton\" was not injected: check your FXML file 'FleetGUI.fxml'.";
                 initButtons();
+                firmFleetType.getItems().addAll("Sedan","Suv","HeatchBack");
         }
 
         private void initButtons() {
@@ -106,6 +102,8 @@ public class FleetGUI {
                                 } catch (IOException e) {
                                         System.out.println(e.getMessage());
                                 }
+                        }else{
+                                addCar();
                         }
                 });
         }
@@ -118,6 +116,7 @@ public class FleetGUI {
                 if (firmFleetMake.getText().length() != 0 && firmFleetPrice.getText().length() != 0
                                 && firmFleetType.getSelectionModel().getSelectedItem() != null
                                 && fleetCount.getText().length() != 0) {
+                                        System.out.println(firm.getId());
                 Car.addFleet(firm.getId(), firmFleetMake.getText(),firmFleetType.getSelectionModel().getSelectedItem(),firmFleetPrice.getText(),fleetCount.getText(),  pricePeriodStart.getValue(),pricePeriodEnd.getValue(),fleetAvailableStart.getValue(),fleetAvailableEnd.getValue());
                 } else {
                         JOptionPane.showMessageDialog(null, "Fill in the blanks", "Blank spaces", JOptionPane.ERROR_MESSAGE);
