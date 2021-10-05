@@ -11,17 +11,21 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Car {
-    private int id;
+    private int id, firm_id;
     private String make;
     private String type;
     private int dailyPrice, carCount;
     private String pricePeriod,avaiblePeriod;
 
+    
+
+    
     public Car() {
     }
 
-    public Car(int id, String make,String type, int dailyPrice, int carCount, String pricePeriod, String avaiblePeriod) {
+    public Car(int id,int firm_id, String make,String type, int dailyPrice, int carCount, String pricePeriod, String avaiblePeriod) {
         this.id = id;
+        this.firm_id = firm_id;
         this.make = make;
         this.type = type;
         this.dailyPrice = dailyPrice;
@@ -33,6 +37,20 @@ public class Car {
     public int getId() {
         return this.id;
     }
+
+    public int getFirm_id() {
+        return this.firm_id;
+    }
+
+    public void setFirm_id(int firm_id) {
+        this.firm_id = firm_id;
+    }
+
+    public Car firm_id(int firm_id) {
+        setFirm_id(firm_id);
+        return this;
+    }
+
     public String getMake() {
         return this.make;
     }
@@ -170,13 +188,14 @@ public class Car {
             ResultSet resultSet = preparedStatement.executeQuery(query);
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
+                int firm_id = resultSet.getInt("firm_id");
                 String make = resultSet.getString("make");
                 String carType = resultSet.getString("type");
                 String dailyPrice = resultSet.getString("daily_price");
                 String carCount = resultSet.getString("car_count");
                 String pricePeriod = resultSet.getString("price_period");
                 String avaiblePeriod = resultSet.getString("avaible_period");
-                car = new Car(id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
+                car = new Car(id,firm_id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
                 availables.add(car);
             }
             

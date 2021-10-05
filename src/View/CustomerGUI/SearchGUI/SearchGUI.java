@@ -77,7 +77,7 @@ public class SearchGUI {
                         RentItem rentItemController = (RentItem) fxmlLoader.getController();
                         if(i<availables.size()){
                             availablesGrid.add(rentItem, c, r);
-                            rentItemController.setAvaibles(availables.get(i), CustomerGUI.customer);
+                            rentItemController.setAvaibles(availables.get(i), CustomerGUI.customer,dateArrival.getValue(),dateDeparture.getValue());
                             i++;
                         }
                        

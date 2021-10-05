@@ -1,10 +1,14 @@
 package View.FirmGUI;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import Model.Car;
 import Model.Customer;
+import Model.Rents;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,14 +59,19 @@ public class RentItem {
 
     }
 
-    public void setAvaibles(Car car, Customer customer) {
+    public void setAvaibles(Car car, Customer customer, LocalDate localDate, LocalDate localDate2) {
         startDate.setVisible(false);
         endDay.setVisible(false);
         carMake.setText(car.getMake());
         carType.setText(car.getType());
         priceLabel.setText(String.valueOf(car.getDailyPrice()));
-        rentButton.setOnAction(arg0->{
-            
+        rentButton.setOnAction(arg0 -> {
+            if (customer.getIdentity() != null) {
+                Rents.addRent(car, customer.getIdentity(), localDate, localDate2);
+            }else{
+                JOptionPane.showMessageDialog(null, "Edith Your Profile", "Miss Informations", JOptionPane.ERROR_MESSAGE);
+                
+            }
         });
     }
 }
