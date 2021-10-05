@@ -2,6 +2,8 @@ package View.FirmGUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.Car;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -49,6 +51,15 @@ public class RentItem {
         assert priceLabel != null : "fx:id=\"priceLabel\" was not injected: check your FXML file 'RentItem.fxml'.";
         assert carImage != null : "fx:id=\"carImage\" was not injected: check your FXML file 'RentItem.fxml'.";
         assert rentButton != null : "fx:id=\"rentButton\" was not injected: check your FXML file 'RentItem.fxml'.";
+
+    }
+
+    public void setAvaibles(Car car) {
+        startDate.setVisible(false);
+        endDay.setVisible(false);
+        carMake.setText(car.getMake());
+        carType.setText(car.getType());
+        priceLabel.setText(String.valueOf(car.getDailyPrice()));
 
     }
 }

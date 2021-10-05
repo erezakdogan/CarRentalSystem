@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import Helpers.DBConnector;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -15,12 +16,12 @@ public class Car {
     private String make;
     private String type;
     private int dailyPrice, carCount;
-    private Period pricePeriod,avaiblePeriod;
+    private String pricePeriod,avaiblePeriod;
 
     public Car() {
     }
 
-    public Car(int id, String make,String type, int dailyPrice, int carCount, Period pricePeriod, Period avaiblePeriod) {
+    public Car(int id, String make,String type, int dailyPrice, int carCount, String pricePeriod, String avaiblePeriod) {
         this.id = id;
         this.make = make;
         this.type = type;
@@ -57,19 +58,19 @@ public class Car {
         this.carCount = carCount;
     }
 
-    public Period getPricePeriod() {
+    public String getPricePeriod() {
         return this.pricePeriod;
     }
 
-    public void setPricePeriod(Period pricePeriod) {
+    public void setPricePeriod(String pricePeriod) {
         this.pricePeriod = pricePeriod;
     }
 
-    public Period getAvaiblePeriod() {
+    public String getAvaiblePeriod() {
         return this.avaiblePeriod;
     }
 
-    public void setAvaiblePeriod(Period avaiblePeriod) {
+    public void setAvaiblePeriod(String avaiblePeriod) {
         this.avaiblePeriod = avaiblePeriod;
     }
 
@@ -88,12 +89,12 @@ public class Car {
         return this;
     }
 
-    public Car pricePeriod(Period pricePeriod) {
+    public Car pricePeriod(String pricePeriod) {
         setPricePeriod(pricePeriod);
         return this;
     }
 
-    public Car avaiblePeriod(Period avaiblePeriod) {
+    public Car avaiblePeriod(String avaiblePeriod) {
         setAvaiblePeriod(avaiblePeriod);
         return this;
     }
@@ -163,13 +164,11 @@ public class Car {
             }
         }
 
-        String query = "SELECT * FROM  cars WHERE firm_id IN (?) AND type = "+type;
+        String query = "SELECT * FROM  cars WHERE firm_id IN ("+getFirmsInCity(firm)+") AND type = '"+type+"';";
         Car car;
-        System.out.println(getFirmsInCity(firm));
         try {
-            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
-            preparedStatement.setString(1, getFirmsInCity(firm));
-            ResultSet resultSet = preparedStatement.executeQuery();
+            Statement preparedStatement = DBConnector.getInstance().createStatement();
+            ResultSet resultSet = preparedStatement.executeQuery(query);
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String make = resultSet.getString("make");
@@ -178,7 +177,7 @@ public class Car {
                 String carCount = resultSet.getString("car_count");
                 String pricePeriod = resultSet.getString("price_period");
                 String avaiblePeriod = resultSet.getString("avaible_period");
-                car = new Car(id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), Period.parse(pricePeriod), Period.parse(avaiblePeriod));
+                car = new Car(id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
                 availables.add(car);
             }
             
@@ -192,12 +191,13 @@ public class Car {
     private static String getFirmsInCity(ArrayList<Firm> firm) {
         String firmsInCity = "";
         for(int i = 0;i<firm.size();i++){
-            if(i!=firm.size()-1){
-                firmsInCity+=(firm.get(i)+",");
+            if(i!=firm.size()-1&&firm.size()!=1){
+                firmsInCity+=(firm.get(i).getId()+",");
             }else{
-                firmsInCity+=(firm.get(i));
+                firmsInCity+=(firm.get(i).getId());
             }
         }
+        System.out.println(firmsInCity);
         return firmsInCity;
     }
 }
