@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Model.Car;
+import Model.Customer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -54,12 +55,14 @@ public class RentItem {
 
     }
 
-    public void setAvaibles(Car car) {
+    public void setAvaibles(Car car, Customer customer) {
         startDate.setVisible(false);
         endDay.setVisible(false);
         carMake.setText(car.getMake());
         carType.setText(car.getType());
         priceLabel.setText(String.valueOf(car.getDailyPrice()));
-
+        rentButton.setOnAction(arg0->{
+            
+        });
     }
 }

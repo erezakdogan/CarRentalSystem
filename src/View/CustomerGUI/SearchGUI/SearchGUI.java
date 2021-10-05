@@ -1,6 +1,5 @@
 package View.CustomerGUI.SearchGUI;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -9,18 +8,15 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import Model.Car;
+import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
 import View.FirmGUI.RentItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 
@@ -73,7 +69,6 @@ public class SearchGUI {
                     typeVehicle.getSelectionModel().getSelectedItem(), dateArrival.getValue(),
                     dateDeparture.getValue());
                     int i = 0;
-                    System.out.println(availables.size()/3);
             for (int r = 0; r < availables.size()/3+1; r++) {
                 for(int c = 0; c<3;c++){
                     try {
@@ -82,7 +77,7 @@ public class SearchGUI {
                         RentItem rentItemController = (RentItem) fxmlLoader.getController();
                         if(i<availables.size()){
                             availablesGrid.add(rentItem, c, r);
-                            rentItemController.setAvaibles(availables.get(i));
+                            rentItemController.setAvaibles(availables.get(i), CustomerGUI.customer);
                             i++;
                         }
                        

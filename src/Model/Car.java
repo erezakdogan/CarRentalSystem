@@ -1,6 +1,5 @@
 package Model;
 
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -32,7 +31,7 @@ public class Car {
         
     }
     public int getId() {
-        return this.dailyPrice;
+        return this.id;
     }
     public String getMake() {
         return this.make;

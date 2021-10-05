@@ -84,7 +84,7 @@ public class SignInGUI {
                         borderPane.setCenter(borderPane2);
                         CustomerGUI customerGUI = fxmlLoader.getController();
                         Customer customerfin = Customer.getCustomers().stream().filter(customer-> customer.getMail().equals(signinMail.getText())).findFirst().orElse(null);
-                        customerGUI.setName(customerfin.getName());
+                        customerGUI.setCustomer(customerfin);
                         Scene scene = new Scene(borderPane);
                         Stage arg1 = new Stage();
                         arg1.setScene(scene);

@@ -3,6 +3,7 @@ package View.CustomerGUI;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Model.Customer;
 import View.CustomerGUI.RentsGUI.RentsGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -55,9 +56,11 @@ public class CustomerGUI {
 
         @FXML
         private BorderPane borderPane;
+
         @FXML
         private AnchorPane customerAnchor;
 
+        public static Customer customer;
         @FXML
         void initialize() {
                 assert nameLabel != null
@@ -111,7 +114,7 @@ public class CustomerGUI {
         }
 
 
-        public void setName(String name){
-        nameLabel.setText(name);
+        public void setCustomer(Customer customer){
+        this.customer = customer;
         }
 }
