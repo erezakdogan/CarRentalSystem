@@ -131,7 +131,5 @@ public class CustomerGUI {
                 CustomerGUI.customer = customer;
         }
 
-        public static void directToProfile(Customer customer){
         
-        }
 }

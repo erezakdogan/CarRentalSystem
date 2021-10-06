@@ -91,7 +91,7 @@ public class RentItem {
                             stage.show();
                     } catch (Exception e) {
                             System.out.println(e.getMessage());
-                    }
+                }
             }
         });
     }

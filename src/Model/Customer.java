@@ -3,6 +3,9 @@ package Model;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
+
+import javax.swing.plaf.nimbus.State;
+
 import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.ResultSet;
@@ -145,7 +148,7 @@ public class Customer {
                 String mail = resultSet.getString("mail");
                 String pass = resultSet.getString("pass");
                 String identity = resultSet.getString("identity");
-                customer = new Customer(id,name, mail, pass, phone, identity);
+                customer = new Customer(id, name, mail, pass, phone, identity);
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -154,7 +157,14 @@ public class Customer {
         return customers;
     }
 
-    public static void updateCustomer(String id2, String text, int id3) {
+    public static void updateCustomer(String column, String newVal, int customerId) {
+        String query = "UPDATE customers SET " + column + "='" + newVal + "' WHERE id = " + customerId;
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

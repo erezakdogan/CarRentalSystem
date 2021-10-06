@@ -167,7 +167,7 @@ public class Firm {
         try {
             PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
             preparedStatement.executeUpdate();
-
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
