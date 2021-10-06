@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Model.Customer;
+import View.CustomerGUI.ProfileGUI.ProfileGUI;
 import View.CustomerGUI.RentsGUI.RentsGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -61,6 +62,7 @@ public class CustomerGUI {
         private AnchorPane customerAnchor;
 
         public static Customer customer;
+
         @FXML
         void initialize() {
                 assert nameLabel != null
@@ -100,6 +102,18 @@ public class CustomerGUI {
                         }
 
                 });
+                myProfileButton.setOnAction(arg0 -> {
+                        try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
+                                AnchorPane anchorPane = fxmlLoader.load();
+                                ProfileGUI profileGUI = fxmlLoader.getController();
+                                profileGUI.setCustomer(customer);
+                                borderPane.setCenter(anchorPane);
+                        } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                        }
+
+                });
 
                 searchButton.setOnAction(arg0 -> {
                         try {
@@ -113,8 +127,8 @@ public class CustomerGUI {
                 });
         }
 
-
-        public void setCustomer(Customer customer){
-        this.customer = customer;
+        public void setCustomer(Customer customer) {
+                CustomerGUI.customer = customer;
         }
+
 }

@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import Model.Car;
+import Model.Customer;
 import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
 import View.FirmGUI.RentItem;
@@ -95,4 +96,6 @@ public class SearchGUI {
 
         }
     }
+
+   
 }

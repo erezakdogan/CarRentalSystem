@@ -1,5 +1,6 @@
 package View.FirmGUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -9,10 +10,17 @@ import javax.swing.JOptionPane;
 import Model.Car;
 import Model.Customer;
 import Model.Rents;
+import View.CustomerGUI.CustomerGUI;
+import View.CustomerGUI.ProfileGUI.ProfileGUI;
+import View.CustomerGUI.SearchGUI.SearchGUI;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class RentItem {
 
@@ -68,9 +76,22 @@ public class RentItem {
         rentButton.setOnAction(arg0 -> {
             if (customer.getIdentity() != null) {
                 Rents.addRent(car, customer.getIdentity(), localDate, localDate2);
-            }else{
-                JOptionPane.showMessageDialog(null, "Edith Your Profile", "Miss Informations", JOptionPane.ERROR_MESSAGE);
-                
+            } else {
+                JOptionPane.showMessageDialog(null, "Edith Your Profile", "Miss Informations",
+                        JOptionPane.ERROR_MESSAGE);
+            
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
+                            AnchorPane anchorPane = fxmlLoader.load();
+                            ProfileGUI profileGUI = fxmlLoader.getController();
+                            profileGUI.setCustomer(customer);
+                            Scene scene = new Scene(anchorPane);
+                            Stage stage = new Stage();
+                            stage.setScene(scene);
+                            stage.show();
+                    } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                    }
             }
         });
     }
