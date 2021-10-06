@@ -9,17 +9,23 @@ import java.sql.ResultSet;
 import Helpers.DBConnector;
 
 public class Customer {
+    private int id;
     private String name, mail, pass, phone, identity;
 
     public Customer() {
     }
 
-    public Customer(String name, String mail, String pass, String phone, String identity) {
+    public Customer(int id, String name, String mail, String pass, String phone, String identity) {
+        this.id = id;
         this.name = name;
         this.mail = mail;
         this.pass = pass;
         this.phone = phone;
         this.identity = identity;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public String getName() {
@@ -132,19 +138,23 @@ public class Customer {
         try {
             Statement statement = DBConnector.getInstance().createStatement();
             ResultSet resultSet = statement.executeQuery(query);
-            while(resultSet.next()){
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String phone = resultSet.getString("phone");
                 String mail = resultSet.getString("mail");
                 String pass = resultSet.getString("pass");
                 String identity = resultSet.getString("identity");
-                customer = new Customer( name,  mail,  pass,  phone,  identity);
+                customer = new Customer(id,name, mail, pass, phone, identity);
                 customers.add(customer);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return customers;
+    }
+
+    public static void updateCustomer(String id2, String text, int id3) {
     }
 
 }

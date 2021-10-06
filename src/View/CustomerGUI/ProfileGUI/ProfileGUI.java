@@ -44,10 +44,7 @@ public class ProfileGUI {
         assert password != null : "fx:id=\"password\" was not injected: check your FXML file 'ProfileGUI.fxml'.";
         assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'ProfileGUI.fxml'.";
         assert saveButton != null : "fx:id=\"saveButton\" was not injected: check your FXML file 'ProfileGUI.fxml'.";
-        saveButton.setOnAction(arg0->{
-            Stage stage = (Stage) saveButton.getScene().getWindow();
-            stage.close();
-        });
+       
     }
 
     public void setCustomer(Customer customer) {
@@ -60,6 +57,21 @@ public class ProfileGUI {
        } catch (NullPointerException e) {
            System.out.println(e.getMessage());
        }
+
+       saveButton.setOnAction(arg0->{
+        updateCustomer(customer);
+        Stage stage = (Stage) saveButton.getScene().getWindow();
+        stage.close();
+    });
+    }
+    private void updateCustomer(Customer customer) {
+        TextField[] textFields = { name, mail, password, phone,identity };
+        for (int i = 0; i < textFields.length; i++) {
+
+            if (textFields[i].getText().length() != 0) {
+                Customer.updateCustomer(textFields[i].getId(), textFields[i].getText(), customer.getId());
+            }
+        }
     }
 
 }
