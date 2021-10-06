@@ -2,10 +2,7 @@ package Model;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Objects;
-
-import javax.swing.plaf.nimbus.State;
-
+import java.util.Objects; 
 import java.util.ArrayList;
 import java.sql.Statement;
 import java.sql.ResultSet;

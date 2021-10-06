@@ -1,9 +1,12 @@
 package Model;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import Helpers.DBConnector;
@@ -142,6 +145,29 @@ public class Rents {
             System.out.println(e.getMessage());
         }
 
+    }
+
+    public static ArrayList<Rents> getRents(Customer customer) {
+        ArrayList<Rents> rentsList = new ArrayList<>();
+        String query = "SELECT * FROM reservations WHERE customer_id = "+customer.getIdentity();
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        Rents rents;
+        while(resultSet.next()){
+            int id = resultSet.getInt("id");
+            int firm_id = resultSet.getInt("firm_id");
+            int price = resultSet.getInt("price");
+            String car_make = resultSet.getString("car_make");
+            String res_per = resultSet.getString("res_per");
+            rents = new Rents(id, Integer.parseInt(customer.getIdentity()), firm_id, price, car_make,  res_per);
+            rentsList.add(rents);
+
+        }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return rentsList;
     }
 
 }

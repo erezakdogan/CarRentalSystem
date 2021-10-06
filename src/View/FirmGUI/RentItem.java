@@ -1,6 +1,5 @@
 package View.FirmGUI;
-
-import java.io.IOException;
+ 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -9,10 +8,8 @@ import javax.swing.JOptionPane;
 
 import Model.Car;
 import Model.Customer;
-import Model.Rents;
-import View.CustomerGUI.CustomerGUI;
-import View.CustomerGUI.ProfileGUI.ProfileGUI;
-import View.CustomerGUI.SearchGUI.SearchGUI;
+import Model.Rents; 
+import View.CustomerGUI.ProfileGUI.ProfileGUI; 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -94,5 +91,8 @@ public class RentItem {
                 }
             }
         });
+    }
+
+    public void setInfos(Rents rents) {
     }
 }

@@ -96,6 +96,8 @@ public class CustomerGUI {
                         try {
                                 FXMLLoader fxmlLoader = new FXMLLoader(RentsGUI.class.getResource("RentsGUI.fxml"));
                                 AnchorPane anchorPane = fxmlLoader.load();
+                                RentsGUI rentsGUI = (RentsGUI) fxmlLoader.getController();
+                                rentsGUI.listRents(customer);
                                 borderPane.setCenter(anchorPane);
                         } catch (Exception e) {
                                 System.out.println(e.getMessage());
