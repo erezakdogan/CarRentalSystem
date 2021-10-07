@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import Model.Firm;
 import View.FirmGUI.FleetGUI.FleetGUI;
 import View.FirmGUI.MainGUI.MainGUI;
+import View.FirmGUI.ProfileGUI.ProfileGUI;
 import View.FirmGUI.RentsGUI.RentsGUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +56,7 @@ public class FirmGUI {
     @FXML
     private BorderPane borderPane;
     Firm firm;
+
     @FXML
     void initialize() {
         assert firmName != null : "fx:id=\"firmName\" was not injected: check your FXML file 'FirmGUI.fxml'.";
@@ -78,7 +80,7 @@ public class FirmGUI {
 
         initButtons();
     }
-    
+
     private void initButtons() {
         firmMainButton.setOnAction(arg0 -> {
             try {
@@ -94,9 +96,10 @@ public class FirmGUI {
         firmRentsButton.setOnAction(arg0 -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(RentsGUI.class.getResource("RentsGUI.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
                 RentsGUI rentsGUI = (RentsGUI) fxmlLoader.getController();
                 rentsGUI.listRents(firm);
-                AnchorPane anchorPane = fxmlLoader.load();
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -110,6 +113,18 @@ public class FirmGUI {
                 AnchorPane anchorPane = fxmlLoader.load();
                 FleetGUI fleetGUI = fxmlLoader.getController();
                 fleetGUI.setFirms(firm);
+                borderPane.setCenter(anchorPane);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        });
+        firmProfileButton.setOnAction(arg0 -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ProfileGUI profileGUI = fxmlLoader.getController();
+                profileGUI.setFirm(firm);
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());

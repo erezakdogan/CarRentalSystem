@@ -11,8 +11,7 @@ import Model.Firm;
 import Model.Rents;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.fxml.FXML; 
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
@@ -48,8 +47,8 @@ public class RentsGUI {
     public void listRents(Firm firm) {
     ArrayList<Rents> firmsRents = Rents.getRents(firm);
     int i=0;
-    for(int r=0; r<firmsRents.size()/3+1;r++){
-        for(int c=0; c<3;c++){
+    for(int r=0; r<firmsRents.size()/2+1;r++){
+        for(int c=0; c<2;c++){
             if(i<firmsRents.size()){
               firmRentsGrid.add(getNode(firmsRents.get(i)) , c, r);
               i++;
