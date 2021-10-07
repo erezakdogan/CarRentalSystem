@@ -112,6 +112,9 @@ public class SignInGUI {
                         System.out.println(e.getMessage());
                     }
                 }
+
+                Stage stage = (Stage) signinButton.getScene().getWindow();
+                stage.setIconified(true);
             }
         });
         signinCreate.setOnMouseClicked(arg0 -> {
