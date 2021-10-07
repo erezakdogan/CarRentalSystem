@@ -5,12 +5,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Model.Rents;
-import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
 import View.FirmGUI.RentItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
 import Model.Customer;

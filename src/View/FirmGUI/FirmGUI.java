@@ -2,7 +2,7 @@ package View.FirmGUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import javafx.stage.Stage;
 import Model.Firm;
 import View.FirmGUI.FleetGUI.FleetGUI;
 import View.FirmGUI.MainGUI.MainGUI;
@@ -131,6 +131,11 @@ public class FirmGUI {
             }
 
         });
+
+        firmLogoutButton.setOnAction(arg0->{
+            Stage stage = (Stage) firmLogoutButton.getScene().getWindow();
+            stage.close();
+    });
     }
 
     public void setFirm(Firm firm) {

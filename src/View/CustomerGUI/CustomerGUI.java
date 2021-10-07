@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import View.CustomerGUI.SearchGUI.SearchGUI;
 
 public class CustomerGUI {
@@ -127,6 +128,12 @@ public class CustomerGUI {
                         }
 
                 });
+
+                customerLogoutButton.setOnAction(arg0->{
+                        Stage stage = (Stage) customerLogoutButton.getScene().getWindow();
+                        stage.close();
+                });
+                
         }
 
         public void setCustomer(Customer customer) {

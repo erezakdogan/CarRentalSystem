@@ -41,7 +41,7 @@ public class RentsGUI {
         assert firmRentNum != null : "fx:id=\"firmRentNum\" was not injected: check your FXML file 'RentsGUI.fxml'.";
         assert firmActiveRentCar != null : "fx:id=\"firmActiveRentCar\" was not injected: check your FXML file 'RentsGUI.fxml'.";
         assert firmTotRevenue != null : "fx:id=\"firmTotRevenue\" was not injected: check your FXML file 'RentsGUI.fxml'.";
-
+        
     }
 
     public void listRents(Firm firm) {
