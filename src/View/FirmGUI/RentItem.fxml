@@ -6,18 +6,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="250.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.RentItem">
+<Pane prefHeight="250.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.RentItem">
    <children>
       <Label fx:id="rentId" layoutX="24.0" layoutY="14.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
-      <Label alignment="CENTER_RIGHT" layoutX="237.0" layoutY="161.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
-      <Label layoutX="28.0" layoutY="161.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
+      <Label alignment="CENTER_RIGHT" layoutX="237.0" layoutY="161.0" text="RentId" />
+      <Label layoutX="28.0" layoutY="161.0" text="RentId" />
       <Separator layoutX="28.0" layoutY="151.0" prefHeight="4.0" prefWidth="254.0" />
-      <Label fx:id="startDate" layoutX="27.0" layoutY="182.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
-      <Label fx:id="endDay" alignment="CENTER_RIGHT" layoutX="237.0" layoutY="182.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
-      <Label fx:id="carMake" layoutX="151.0" layoutY="61.0" prefHeight="21.0" prefWidth="113.0" text="Make" />
-      <Label fx:id="carType" layoutX="151.0" layoutY="96.0" prefHeight="21.0" prefWidth="113.0" text="Type" />
-      <Label fx:id="priceLabel" layoutX="27.0" layoutY="206.0" prefHeight="21.0" prefWidth="113.0" text="Revenue" />
+      <Label fx:id="startDate" layoutX="27.0" layoutY="182.0" text="RentId" />
+      <Label fx:id="endDay" alignment="CENTER_RIGHT" layoutX="237.0" layoutY="182.0" text="RentId" />
+      <Label fx:id="carMake" layoutX="151.0" layoutY="61.0" text="Make" />
+      <Label fx:id="carType" layoutX="151.0" layoutY="96.0" text="Type" />
+      <Label fx:id="priceLabel" layoutX="27.0" layoutY="206.0" text="Revenue" />
       <ImageView fx:id="carImage" fitHeight="90.0" fitWidth="90.0" layoutX="38.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="rentButton" layoutX="231.0" layoutY="204.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="rentButton" layoutX="228.0" layoutY="204.0" mnemonicParsing="false" text="Button" />
    </children>
 </Pane>

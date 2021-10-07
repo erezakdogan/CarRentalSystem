@@ -137,9 +137,9 @@ public class Rents {
             PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
             preparedStatement.setInt(1, Integer.parseInt(identity));
             preparedStatement.setInt(2, car.getFirm_id());
-            preparedStatement.setInt(3, (int) (car.getDailyPrice()*ChronoUnit.DAYS.between(localDate, localDate2)));
+            preparedStatement.setInt(3, (int) (car.getDailyPrice() * ChronoUnit.DAYS.between(localDate, localDate2)));
             preparedStatement.setString(4, car.getMake());
-            preparedStatement.setString(5, localDate+"-"+localDate2);
+            preparedStatement.setString(5, localDate + "-" + localDate2);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -149,21 +149,44 @@ public class Rents {
 
     public static ArrayList<Rents> getRents(Customer customer) {
         ArrayList<Rents> rentsList = new ArrayList<>();
-        String query = "SELECT * FROM reservations WHERE customer_id = "+customer.getIdentity();
+        String query = "SELECT * FROM reservations WHERE customer_id = " + customer.getIdentity();
         try {
             Statement statement = DBConnector.getInstance().createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-        Rents rents;
-        while(resultSet.next()){
-            int id = resultSet.getInt("id");
-            int firm_id = resultSet.getInt("firm_id");
-            int price = resultSet.getInt("price");
-            String car_make = resultSet.getString("car_make");
-            String res_per = resultSet.getString("res_per");
-            rents = new Rents(id, Integer.parseInt(customer.getIdentity()), firm_id, price, car_make,  res_per);
-            rentsList.add(rents);
+            ResultSet resultSet = statement.executeQuery(query);
+            Rents rents;
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int firm_id = resultSet.getInt("firm_id");
+                int price = resultSet.getInt("price");
+                String car_make = resultSet.getString("car_make");
+                String res_per = resultSet.getString("res_per");
+                rents = new Rents(id, Integer.parseInt(customer.getIdentity()), firm_id, price, car_make, res_per);
+                rentsList.add(rents);
 
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+        return rentsList;
+    }
+
+    public static ArrayList<Rents> getRents(Firm firm) {
+        ArrayList<Rents> rentsList = new ArrayList<>();
+        String query = "SELECT * FROM reservations WHERE firm_id = " + firm.getId();
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
+            Rents rents;
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int customer_id = resultSet.getInt("customer_id");
+                int price = resultSet.getInt("price");
+                String car_make = resultSet.getString("car_make");
+                String res_per = resultSet.getString("res_per");
+                rents = new Rents(id, customer_id, firm.getId(), price, car_make, res_per);
+                rentsList.add(rents);
+
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

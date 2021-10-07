@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import Model.Car;
 import Model.Customer;
+import Model.Firm;
 import Model.Rents; 
 import View.CustomerGUI.ProfileGUI.ProfileGUI; 
 import javafx.fxml.FXML;
@@ -94,5 +95,13 @@ public class RentItem {
     }
 
     public void setInfos(Rents rents) {
+        Firm firm = Firm.getFirms().stream().filter(predicate->predicate.getId()==rents.getFirm_id()).findFirst().orElse(null);
+        startDate.setText(rents.getRes_per());
+        endDay.setVisible(false);
+        carMake.setText(rents.getCar_make());
+        carType.setText(firm.getFirmName());
+        priceLabel.setText(String.valueOf(rents.getPrice()));
+        rentButton.setVisible(false);
+        rentButton.setManaged(false);
     }
 }

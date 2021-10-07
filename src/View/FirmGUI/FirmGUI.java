@@ -94,6 +94,8 @@ public class FirmGUI {
         firmRentsButton.setOnAction(arg0 -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(RentsGUI.class.getResource("RentsGUI.fxml"));
+                RentsGUI rentsGUI = (RentsGUI) fxmlLoader.getController();
+                rentsGUI.listRents(firm);
                 AnchorPane anchorPane = fxmlLoader.load();
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
