@@ -35,6 +35,8 @@ public class RentsGUI {
     @FXML
     private Label firmTotRevenue;
 
+    private Firm firm;
+
     @FXML
     void initialize() {
         assert firmRentsGrid != null : "fx:id=\"firmRentsGrid\" was not injected: check your FXML file 'RentsGUI.fxml'.";
@@ -45,6 +47,7 @@ public class RentsGUI {
     }
 
     public void listRents(Firm firm) {
+        this.firm=firm;
     ArrayList<Rents> firmsRents = Rents.getRents(firm);
     int i=0;
     for(int r=0; r<firmsRents.size()/2+1;r++){
@@ -55,6 +58,7 @@ public class RentsGUI {
             }
         }
     }
+    setRentInfos();
     }
 
     public  Pane getNode(Rents rents) {
@@ -71,5 +75,16 @@ public class RentsGUI {
         return pane;
     }
 
+    private void setRentInfos(){
+        ArrayList<Rents> firmRents = Rents.getRents(firm);
+        int totRevenue =0;
+        int totRents = firmRents.size();
+        for(int i=0; i<firmRents.size();i++){
+            totRevenue += firmRents.get(i).getPrice();
+        }
+        firmRentNum.setText(String.valueOf(totRents));
+        firmTotRevenue.setText(String.valueOf(totRevenue));
+        firmActiveRentCar.setText(String.valueOf(totRents));
+    }
 
 }

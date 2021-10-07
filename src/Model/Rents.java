@@ -139,7 +139,7 @@ public class Rents {
             preparedStatement.setInt(2, car.getFirm_id());
             preparedStatement.setInt(3, (int) (car.getDailyPrice() * ChronoUnit.DAYS.between(localDate, localDate2)));
             preparedStatement.setString(4, car.getMake());
-            preparedStatement.setString(5, localDate + "-" + localDate2);
+            preparedStatement.setString(5, localDate + "/" + localDate2);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

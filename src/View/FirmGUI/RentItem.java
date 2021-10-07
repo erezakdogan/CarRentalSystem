@@ -1,5 +1,5 @@
 package View.FirmGUI;
- 
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import Model.Car;
 import Model.Customer;
 import Model.Firm;
-import Model.Rents; 
-import View.CustomerGUI.ProfileGUI.ProfileGUI; 
+import Model.Rents;
+import View.CustomerGUI.ProfileGUI.ProfileGUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -77,27 +77,29 @@ public class RentItem {
             } else {
                 JOptionPane.showMessageDialog(null, "Edith Your Profile", "Miss Informations",
                         JOptionPane.ERROR_MESSAGE);
-            
-                        try {
-                            FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
-                            AnchorPane anchorPane = fxmlLoader.load();
-                            ProfileGUI profileGUI = fxmlLoader.getController();
-                            profileGUI.setCustomer(customer);
-                            Scene scene = new Scene(anchorPane);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.show();
-                    } catch (Exception e) {
-                            System.out.println(e.getMessage());
+
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
+                    AnchorPane anchorPane = fxmlLoader.load();
+                    ProfileGUI profileGUI = fxmlLoader.getController();
+                    profileGUI.setCustomer(customer);
+                    Scene scene = new Scene(anchorPane);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
             }
         });
     }
 
     public void setInfos(Rents rents) {
-        Firm firm = Firm.getFirms().stream().filter(predicate->predicate.getId()==rents.getFirm_id()).findFirst().orElse(null);
-        startDate.setText(rents.getRes_per());
-        endDay.setVisible(false);
+        Firm firm = Firm.getFirms().stream().filter(predicate -> predicate.getId() == rents.getFirm_id()).findFirst()
+                .orElse(null);
+        String[] startEnd = rents.getRes_per().split("/");
+        startDate.setText(startEnd[0]);
+        endDay.setText(startEnd[1]);
         carMake.setText(rents.getCar_make());
         carType.setText(firm.getFirmName());
         priceLabel.setText(String.valueOf(rents.getPrice()));
