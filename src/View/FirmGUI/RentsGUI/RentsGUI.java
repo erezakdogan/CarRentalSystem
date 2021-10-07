@@ -61,7 +61,7 @@ public class RentsGUI {
     setRentInfos();
     }
 
-    public  Pane getNode(Rents rents) {
+    public static Pane getNode(Rents rents) {
         Pane pane = null;
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("RentItem.fxml"));
@@ -72,7 +72,7 @@ public class RentsGUI {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return pane;
+         return pane;
     }
 
     private void setRentInfos(){

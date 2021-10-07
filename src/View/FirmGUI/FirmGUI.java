@@ -86,6 +86,8 @@ public class FirmGUI {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(MainGUI.class.getResource("MainGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
+                MainGUI mainGUI = (MainGUI) fxmlLoader.getController();
+                mainGUI.loadPanes(firm);
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -97,7 +99,6 @@ public class FirmGUI {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(RentsGUI.class.getResource("RentsGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
-
                 RentsGUI rentsGUI = (RentsGUI) fxmlLoader.getController();
                 rentsGUI.listRents(firm);
                 borderPane.setCenter(anchorPane);
