@@ -9,8 +9,7 @@ import javax.swing.JOptionPane;
 
 import Model.Car; 
 import View.CustomerGUI.CustomerGUI;
-import View.FirmGUI.FirmGUI;
-import View.FirmGUI.RentItem.RentItem;
+ import View.FirmGUI.RentItem.RentItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -72,7 +71,7 @@ public class SearchGUI {
             for (int r = 0; r < availables.size()/3+1; r++) {
                 for(int c = 0; c<3;c++){
                     try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("RentItem.fxml"));
+                        FXMLLoader fxmlLoader = new FXMLLoader(RentItem.class.getResource("RentItem.fxml"));
                         Pane rentItem = fxmlLoader.load();
                         RentItem rentItemController = (RentItem) fxmlLoader.getController();
                         if(i<availables.size()){

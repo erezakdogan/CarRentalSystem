@@ -1,14 +1,12 @@
 package View.FirmGUI.MainGUI.miniRentItem;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import Model.Car;
-import Model.Firm;
-public class MiniFleetItem {
+ public class MiniFleetItem {
 
     @FXML
     private ResourceBundle resources;

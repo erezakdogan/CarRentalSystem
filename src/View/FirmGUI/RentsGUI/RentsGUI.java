@@ -65,7 +65,7 @@ public class RentsGUI {
     public static Pane getNode(Rents rents) {
         Pane pane = null;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("RentItem.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(RentItem.class.getResource("RentItem.fxml"));
             pane = fxmlLoader.load();
             RentItem rentItem = (RentItem) fxmlLoader.getController();
             rentItem.setInfos(rents);

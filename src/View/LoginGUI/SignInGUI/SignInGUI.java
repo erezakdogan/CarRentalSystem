@@ -53,8 +53,6 @@ public class SignInGUI {
     @FXML
     private Button signinButton;
 
-    public static Firm firm;
-    public static Customer customer;
 
 
 
@@ -96,7 +94,6 @@ public class SignInGUI {
                         arg1.setScene(scene);
                         arg1.setTitle("Customer Window");
                         arg1.show();
-                    SignInGUI.customer= customerfin;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
