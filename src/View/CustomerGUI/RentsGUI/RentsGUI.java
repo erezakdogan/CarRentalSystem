@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import Model.Rents;
 import View.FirmGUI.FirmGUI;
-import View.FirmGUI.RentItem;
+import View.FirmGUI.RentItem.RentItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.GridPane;

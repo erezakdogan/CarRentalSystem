@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import Model.Car; 
 import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
-import View.FirmGUI.RentItem;
+import View.FirmGUI.RentItem.RentItem;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;

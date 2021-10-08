@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -12,8 +13,9 @@ import Model.Rents;
 import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 import View.FirmGUI.FirmGUI;
-import View.FirmGUI.RentItem;
-
+import View.FirmGUI.MainGUI.miniRentItem.MiniFleetItem;
+import View.FirmGUI.RentItem.RentItem;
+import Model.Car;
 import java.io.IOException;
 
 public class MainGUI {
@@ -48,19 +50,38 @@ public class MainGUI {
         assert rentsBox != null : "fx:id=\"rentsBox\" was not injected: check your FXML file 'MainGUI.fxml'.";
     }
 
-    public void loadPanes(Firm firm){
+    public void loadPanes(Firm firm) {
         ArrayList<Rents> firmRents = Rents.getRents(firm);
-        for(int i=0; i<firmRents.size();i++){
+        ArrayList<Car> firmCars = Car.getFleet(firm);
+        for (int i = 0; i < firmRents.size(); i++) {
             rentsBox.getChildren().addAll(getNode(firmRents.get(i)));
         }
+        for (int i = 0; i < firmCars.size(); i++) {
+            fleetBox.getChildren().addAll(getNode(firmCars.get(i)));
+        }
+
     }
-    public static Pane getNode(Rents rents) {
+
+    private Pane getNode(Car car) {
+        Pane pane = null;
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MiniFleetItem.class.getResource("MiniFleetItem.fxml"));
+            pane = fxmlLoader.load();
+            MiniFleetItem rentItem = fxmlLoader.getController();
+            rentItem.setCarInfo(car);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return pane;
+    }
+
+    public static Pane getNode(Rents rent) {
         Pane pane = null;
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("RentItem.fxml"));
             pane = fxmlLoader.load();
             RentItem rentItem = (RentItem) fxmlLoader.getController();
-            rentItem.setInfos(rents);
+            rentItem.setInfos(rent);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());

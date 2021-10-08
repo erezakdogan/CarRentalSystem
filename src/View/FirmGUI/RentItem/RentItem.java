@@ -1,4 +1,4 @@
-package View.FirmGUI;
+package View.FirmGUI.RentItem;
 
 import java.net.URL;
 import java.time.LocalDate;

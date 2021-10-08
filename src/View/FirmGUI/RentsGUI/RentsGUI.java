@@ -4,8 +4,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import View.FirmGUI.FirmGUI;
+import View.FirmGUI.RentItem.RentItem;
+
 import java.io.IOException;
-import View.FirmGUI.RentItem;
 
 import Model.Firm;
 import Model.Rents;

@@ -218,4 +218,9 @@ public class Car {
         System.out.println(firmsInCity);
         return firmsInCity;
     }
+
+    public static ArrayList<Car> getFleet(Firm firm) {
+        
+        return null;
+    }
 }
