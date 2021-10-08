@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.fxml.FXMLLoader;
 import View.FirmGUI.FirmGUI;
 import View.FirmGUI.RentItem;
+
 import java.io.IOException;
 
 public class MainGUI {
@@ -45,7 +46,6 @@ public class MainGUI {
         assert firmName != null : "fx:id=\"firmName\" was not injected: check your FXML file 'MainGUI.fxml'.";
         assert fleetBox != null : "fx:id=\"fleetBox\" was not injected: check your FXML file 'MainGUI.fxml'.";
         assert rentsBox != null : "fx:id=\"rentsBox\" was not injected: check your FXML file 'MainGUI.fxml'.";
-
     }
 
     public void loadPanes(Firm firm){

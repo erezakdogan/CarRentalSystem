@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 import View.CustomerGUI.CustomerGUI;
 import View.FirmGUI.FirmGUI;
+import View.FirmGUI.MainGUI.MainGUI;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -51,6 +52,11 @@ public class SignInGUI {
 
     @FXML
     private Button signinButton;
+
+    public static Firm firm;
+    public static Customer customer;
+
+
 
     @FXML
     void initialize() {
@@ -90,20 +96,23 @@ public class SignInGUI {
                         arg1.setScene(scene);
                         arg1.setTitle("Customer Window");
                         arg1.show();
+                    SignInGUI.customer= customerfin;
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                 }else if(auth == "firm"){
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(FirmGUI.class.getResource("FirmGUI.fxml"));
-                        BorderPane anchorPane = fxmlLoader.load();
+                        BorderPane borderPane = fxmlLoader.load();
                         FXMLLoader fxmlLoader2 = new FXMLLoader(FirmGUI.class.getResource("MainGUI/MainGUI.fxml"));
                         AnchorPane anchorPane2 = fxmlLoader2.load();
-                        anchorPane.setCenter(anchorPane2);
+                        borderPane.setCenter(anchorPane2);
                         FirmGUI firmGUI = fxmlLoader.getController();
                         Firm firmFin = Firm.getFirms().stream().filter(firm-> firm.getFirmMail().equals(signinMail.getText())).findFirst().orElse(null);
                         firmGUI.setFirm(firmFin);
-                        Scene scene = new Scene(anchorPane);
+                        MainGUI mainGUI = fxmlLoader2.getController();
+                        mainGUI.loadPanes(firmFin);
+                        Scene scene = new Scene(borderPane);
                         Stage arg1 = new Stage();
                         arg1.setScene(scene);
                         arg1.setTitle("Firm Window");
