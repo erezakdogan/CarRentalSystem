@@ -125,7 +125,7 @@ public class FirmGUI {
                 FXMLLoader fxmlLoader = new FXMLLoader(ProfileGUI.class.getResource("ProfileGUI.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 ProfileGUI profileGUI = fxmlLoader.getController();
-                profileGUI.setFirm(firm);
+                profileGUI.setFirm(reloadFirm(firm));
                 borderPane.setCenter(anchorPane);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -142,5 +142,14 @@ public class FirmGUI {
     public void setFirm(Firm firm) {
         this.firm = firm;
         firmName.setText(firm.getFirmName());
+    }
+
+    public Firm reloadFirm(Firm firm){
+        for(Firm f : Firm.getFirms()){
+            if(f.getId()==firm.getId()){
+                return f;
+            }
+        }
+        return null;
     }
 }

@@ -15,15 +15,13 @@ public class Car {
     private String make;
     private String type;
     private int dailyPrice, carCount;
-    private String pricePeriod,avaiblePeriod;
+    private String pricePeriod, avaiblePeriod;
 
-    
-
-    
     public Car() {
     }
 
-    public Car(int id,int firm_id, String make,String type, int dailyPrice, int carCount, String pricePeriod, String avaiblePeriod) {
+    public Car(int id, int firm_id, String make, String type, int dailyPrice, int carCount, String pricePeriod,
+            String avaiblePeriod) {
         this.id = id;
         this.firm_id = firm_id;
         this.make = make;
@@ -32,8 +30,9 @@ public class Car {
         this.carCount = carCount;
         this.pricePeriod = pricePeriod;
         this.avaiblePeriod = avaiblePeriod;
-        
+
     }
+
     public int getId() {
         return this.id;
     }
@@ -115,7 +114,7 @@ public class Car {
         setAvaiblePeriod(avaiblePeriod);
         return this;
     }
-    
+
     public String getType() {
         return this.type;
     }
@@ -137,7 +136,8 @@ public class Car {
             return false;
         }
         Car car = (Car) o;
-        return Objects.equals(make, car.make) && dailyPrice == car.dailyPrice && carCount == car.carCount && Objects.equals(pricePeriod, car.pricePeriod) && Objects.equals(avaiblePeriod, car.avaiblePeriod);
+        return Objects.equals(make, car.make) && dailyPrice == car.dailyPrice && carCount == car.carCount
+                && Objects.equals(pricePeriod, car.pricePeriod) && Objects.equals(avaiblePeriod, car.avaiblePeriod);
     }
 
     @Override
@@ -147,46 +147,44 @@ public class Car {
 
     @Override
     public String toString() {
-        return "{" +
-            " make='" + getMake() + "'" +
-            ", dailyPrice='" + getDailyPrice() + "'" +
-            ", carCount='" + getCarCount() + "'" +
-            ", pricePeriod='" + getPricePeriod() + "'" +
-            ", avaiblePeriod='" + getAvaiblePeriod() + "'" +
-            "}";
+        return "{" + " make='" + getMake() + "'" + ", dailyPrice='" + getDailyPrice() + "'" + ", carCount='"
+                + getCarCount() + "'" + ", pricePeriod='" + getPricePeriod() + "'" + ", avaiblePeriod='"
+                + getAvaiblePeriod() + "'" + "}";
     }
-    public static void addFleet(int firmId, String make, String type, String price, String count, LocalDate localDate, LocalDate localDate2, LocalDate localDate3, LocalDate localDate4) {
+
+    public static void addFleet(int firmId, String make, String type, String price, String count, LocalDate localDate,
+            LocalDate localDate2, LocalDate localDate3, LocalDate localDate4) {
         String query = "INSERT INTO cars (firm_id,make,type,daily_price,car_count,price_period,avaible_period) VALUES(?,?,?,?,?,?,?);";
-       try {
-        PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
-        preparedStatement.setInt(1, firmId);
-        preparedStatement.setString(2, make);
-        preparedStatement.setString(3, type);
-        preparedStatement.setString(4, price);
-        preparedStatement.setString(5, count);
-        preparedStatement.setString(6, localDate+"/"+localDate2);
-        preparedStatement.setString(7, localDate3+"/"+localDate4);
-        preparedStatement.executeUpdate();
-       } catch (SQLException e) {
-           System.out.println(e.getMessage());
-       }
+        try {
+            PreparedStatement preparedStatement = DBConnector.getInstance().prepareStatement(query);
+            preparedStatement.setInt(1, firmId);
+            preparedStatement.setString(2, make);
+            preparedStatement.setString(3, type);
+            preparedStatement.setString(4, price);
+            preparedStatement.setString(5, count);
+            preparedStatement.setString(6, localDate + "/" + localDate2);
+            preparedStatement.setString(7, localDate3 + "/" + localDate4);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static ArrayList<Car> getAvailables(String city, String type, LocalDate arrival, LocalDate departure) {
         ArrayList<Car> availables = new ArrayList<>();
         ArrayList<Firm> firm = new ArrayList<>();
-        for(Firm f : Firm.getFirms()){
-            if(f.getFirmAddres().equals(city)){
+        for (Firm f : Firm.getFirms()) {
+            if (f.getFirmAddres().equals(city)) {
                 firm.add(f);
             }
         }
 
-        String query = "SELECT * FROM  cars WHERE firm_id IN ("+getFirmsInCity(firm)+") AND type = '"+type+"';";
+        String query = "SELECT * FROM  cars WHERE firm_id IN (" + getFirmsInCity(firm) + ") AND type = '" + type + "';";
         Car car;
         try {
             Statement preparedStatement = DBConnector.getInstance().createStatement();
             ResultSet resultSet = preparedStatement.executeQuery(query);
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 int firm_id = resultSet.getInt("firm_id");
                 String make = resultSet.getString("make");
@@ -195,10 +193,17 @@ public class Car {
                 String carCount = resultSet.getString("car_count");
                 String pricePeriod = resultSet.getString("price_period");
                 String avaiblePeriod = resultSet.getString("avaible_period");
-                car = new Car(id,firm_id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
-                availables.add(car);
+                String[] period = avaiblePeriod.split("/");
+                LocalDate start = LocalDate.parse(period[0]);
+                LocalDate end = LocalDate.parse(period[1]);
+                if (isBetween(arrival, departure, start, end)) {
+                    car = new Car(id, firm_id, make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount),
+                            pricePeriod, avaiblePeriod);
+                    availables.add(car);
+                }
+
             }
-            
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -206,13 +211,20 @@ public class Car {
         return availables;
     }
 
+    private static boolean isBetween(LocalDate arrival, LocalDate departure, LocalDate start, LocalDate end) {
+        if ((arrival.isEqual(start)||arrival.isAfter(start)) && arrival.isBefore(end) && departure.isAfter(start) && (departure.isBefore(end)||departure.isEqual(end))) {
+            return true;
+        }
+        return false;
+    }
+
     private static String getFirmsInCity(ArrayList<Firm> firm) {
         String firmsInCity = "";
-        for(int i = 0;i<firm.size();i++){
-            if(i!=firm.size()-1&&firm.size()!=1){
-                firmsInCity+=(firm.get(i).getId()+",");
-            }else{
-                firmsInCity+=(firm.get(i).getId());
+        for (int i = 0; i < firm.size(); i++) {
+            if (i != firm.size() - 1 && firm.size() != 1) {
+                firmsInCity += (firm.get(i).getId() + ",");
+            } else {
+                firmsInCity += (firm.get(i).getId());
             }
         }
         System.out.println(firmsInCity);
@@ -221,25 +233,27 @@ public class Car {
 
     public static ArrayList<Car> getFleet(Firm firm) {
         ArrayList<Car> firmFleet = new ArrayList<>();
-        String query=  "SELECT*FROM cars Where firm_id = "+firm.getId();
+        String query = "SELECT*FROM cars Where firm_id = " + firm.getId();
         Car car;
         try {
             Statement statement = DBConnector.getInstance().createStatement();
-        ResultSet resultSet = statement.executeQuery(query);
-        while(resultSet.next()){
-            int id = resultSet.getInt("id");
-            int firm_id = resultSet.getInt("firm_id");
-            String make = resultSet.getString("make");
-            String carType = resultSet.getString("type");
-            String dailyPrice = resultSet.getString("daily_price");
-            String carCount = resultSet.getString("car_count");
-            String pricePeriod = resultSet.getString("price_period");
-            String avaiblePeriod = resultSet.getString("avaible_period");
-            car = new Car(id,firm_id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
-            firmFleet.add(car);
-        }
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                int firm_id = resultSet.getInt("firm_id");
+                String make = resultSet.getString("make");
+                String carType = resultSet.getString("type");
+                String dailyPrice = resultSet.getString("daily_price");
+                String carCount = resultSet.getString("car_count");
+                String pricePeriod = resultSet.getString("price_period");
+                String avaiblePeriod = resultSet.getString("avaible_period");
+                car = new Car(id, firm_id, make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount),
+                        pricePeriod, avaiblePeriod);
+                firmFleet.add(car);
+            }
         } catch (SQLException e) {
-System.out.println(e.getMessage());        }
+            System.out.println(e.getMessage());
+        }
         return firmFleet;
     }
 }
