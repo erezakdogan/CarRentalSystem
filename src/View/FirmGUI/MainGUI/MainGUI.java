@@ -56,7 +56,7 @@ public class MainGUI {
         for (int i = 0; i < firmRents.size(); i++) {
             rentsBox.getChildren().addAll(getNode(firmRents.get(i)));
         }
-        for (int i = 0; i < firmCars.size(); i++) {
+        for (int i = 0; i < 5; i++) {
             fleetBox.getChildren().addAll(getNode(firmCars.get(i)));
         }
 

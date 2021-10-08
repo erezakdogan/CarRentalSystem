@@ -220,7 +220,26 @@ public class Car {
     }
 
     public static ArrayList<Car> getFleet(Firm firm) {
-        
-        return null;
+        ArrayList<Car> firmFleet = new ArrayList<>();
+        String query=  "SELECT*FROM cars Where firm_id = "+firm.getId();
+        Car car;
+        try {
+            Statement statement = DBConnector.getInstance().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        while(resultSet.next()){
+            int id = resultSet.getInt("id");
+            int firm_id = resultSet.getInt("firm_id");
+            String make = resultSet.getString("make");
+            String carType = resultSet.getString("type");
+            String dailyPrice = resultSet.getString("daily_price");
+            String carCount = resultSet.getString("car_count");
+            String pricePeriod = resultSet.getString("price_period");
+            String avaiblePeriod = resultSet.getString("avaible_period");
+            car = new Car(id,firm_id,make, carType, Integer.parseInt(dailyPrice), Integer.parseInt(carCount), pricePeriod, avaiblePeriod);
+            firmFleet.add(car);
+        }
+        } catch (SQLException e) {
+System.out.println(e.getMessage());        }
+        return firmFleet;
     }
 }
