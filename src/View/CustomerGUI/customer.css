@@ -1,0 +1,30 @@
+.root{
+    -fx-background-color: white;
+}
+.button { 
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+    -fx-alignment: left;
+    -fx-graphic-text-gap:35px;
+
+}
+.button:focused {
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+
+
+}
+.anchorpane {
+    -fx-background-color: white;
+    -fx-background-radius: 0 25px  25px 0;
+}
+.image-view {
+    -fx-translate-x:30;
+}
+.label{
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}

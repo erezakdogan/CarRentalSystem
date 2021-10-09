@@ -1,0 +1,23 @@
+.root{
+    -fx-background-color: #F3F3F9;
+}
+.button { 
+    -fx-background-color: blue; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-background-radius: 10px;
+}
+.button:hover{
+    -fx-translate-y: 1;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 10px;
+}
+
+.label{
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}

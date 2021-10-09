@@ -15,16 +15,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CustomerGUI.SearchGUI.SearchGUI">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" stylesheets="@search.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CustomerGUI.SearchGUI.SearchGUI">
          <children>
             <Pane layoutX="33.0" layoutY="22.0" prefHeight="241.0" prefWidth="960.0" style="-fx-background-color: blue;" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="30.0">
                <children>
-                  <Label layoutX="48.0" layoutY="96.0" prefHeight="90.0" prefWidth="264.0" text="Rental cars can be experience" wrapText="true">
+                  <Label layoutX="48.0" layoutY="96.0" prefHeight="90.0" prefWidth="264.0" style="-fx-text-fill: white;" text="Rental cars can be experience" wrapText="true">
                      <font>
                         <Font name="Calibri Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="51.0" layoutY="190.0" text="Find your best match" />
+                  <Label layoutX="51.0" layoutY="190.0" style="-fx-text-fill: white;" text="Find your best match" />
                </children>
             </Pane>
             <AnchorPane layoutX="90.0" layoutY="241.0" prefHeight="62.0" prefWidth="880.0" style="-fx-background-color: white; -fx-background-radius: 35; -fx-border-radius: 35; -fx-border-color: blue;">

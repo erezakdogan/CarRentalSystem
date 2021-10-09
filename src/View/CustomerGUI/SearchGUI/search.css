@@ -1,0 +1,48 @@
+
+.date-picker:editable{
+    -fx-background-color: white;
+}
+.date-picker:editable .arrow-button{
+    -fx-background-color: white;
+}
+.date-picker-display-node{
+    -fx-background-color: transparent;
+}
+.combo-box{
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 10px;
+}
+
+.label{
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 10px;
+}
+.button {
+    -fx-background-color: white;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color :linear-gradient(to bottom,white,#F3F3F9);
+    -fx-border-color :grey;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
