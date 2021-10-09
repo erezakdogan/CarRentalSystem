@@ -6,7 +6,12 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
-
+.scroll-bar:vertical{
+    -fx-background-color: vetical-gradiendt(to bottom, black, blue);
+}
+#fleetBox{
+    -fx-background-color: #F3F3F9; 
+}
 .label {
     -fx-text-fill: grey;
     -fx-font-weight: bold;
@@ -24,4 +29,19 @@
 
 #earningsGraph{
     -fx-background-radius: 20px;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color :transparent;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color :linear-gradient(to bottom,white,#F3F3F9);
+    -fx-border-color :grey;
+    -fx-background-radius : 0.0em;
+    -fx-border-radius :2.0em;
 }

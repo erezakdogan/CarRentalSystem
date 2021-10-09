@@ -6,18 +6,18 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane prefHeight="234.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.RentItem.RentItem">
+<Pane prefHeight="234.0" prefWidth="290.0" style="-fx-background-color: white; -fx-background-radius: 20px;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.RentItem.RentItem">
    <children>
-      <Label fx:id="rentId" layoutX="15.0" layoutY="14.0" prefHeight="21.0" prefWidth="46.0" text="RentId" />
-      <Label alignment="CENTER_RIGHT" layoutX="237.0" layoutY="161.0" text="RentId" />
-      <Label layoutX="15.0" layoutY="161.0" text="RentId" />
+      <Label fx:id="rentId" layoutX="15.0" layoutY="14.0" prefHeight="21.0" prefWidth="46.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="RentId" />
+      <Label alignment="CENTER_RIGHT" layoutX="237.0" layoutY="161.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="RentId" />
+      <Label layoutX="15.0" layoutY="161.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="RentId" />
       <Separator layoutX="15.0" layoutY="149.0" prefHeight="4.0" prefWidth="254.0" />
-      <Label fx:id="startDate" layoutX="15.0" layoutY="182.0" text="RentId" />
-      <Label fx:id="endDay" alignment="CENTER_RIGHT" layoutX="237.0" layoutY="182.0" text="RentId" />
-      <Label fx:id="carMake" layoutX="151.0" layoutY="61.0" text="Make" />
-      <Label fx:id="carType" layoutX="151.0" layoutY="96.0" text="Type" />
-      <Label fx:id="priceLabel" layoutX="15.0" layoutY="208.0" text="Revenue" />
+      <Label fx:id="startDate" layoutX="15.0" layoutY="182.0" prefHeight="17.0" prefWidth="72.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="RentId" />
+      <Label fx:id="endDay" alignment="CENTER_RIGHT" layoutX="176.0" layoutY="182.0" prefHeight="17.0" prefWidth="98.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="dfgsdfgsdfg" textAlignment="RIGHT" />
+      <Label fx:id="carMake" layoutX="151.0" layoutY="61.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="Make" />
+      <Label fx:id="carType" layoutX="151.0" layoutY="96.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="Type" />
+      <Label fx:id="priceLabel" layoutX="15.0" layoutY="208.0" style="-fx-text-fill: grey; -fx-font-weight: bold;" text="Revenue" />
       <ImageView fx:id="carImage" fitHeight="90.0" fitWidth="90.0" layoutX="38.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="rentButton" layoutX="228.0" layoutY="204.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="rentButton" layoutX="204.0" layoutY="204.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: blue; -fx-text-fill: white; -fx-font-weight: bold;" text="Rent" />
    </children>
 </Pane>
