@@ -1,0 +1,52 @@
+#fleetAnchor{
+    -fx-background-color: #F3F3F9;
+}
+
+#addPane{
+    -fx-background-color: white;
+    -fx-background-radius:25px;
+}
+.button { 
+    -fx-background-color: blue; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+}
+.button:hover{
+    -fx-translate-y: 1;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 10px;
+}
+
+.check-box:determinate .box{
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
+.date-picker:editable{
+    -fx-background-color: white;
+}
+.date-picker:editable .arrow-button{
+    -fx-background-color: white;
+}
+.date-picker-display-node{
+    -fx-background-color: transparent;
+}
+.combo-box{
+    -fx-background-color: white;
+    
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
+
+.label{
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}
+#firmFleetGrid{
+    -fx-background-color: transparent;
+
+}

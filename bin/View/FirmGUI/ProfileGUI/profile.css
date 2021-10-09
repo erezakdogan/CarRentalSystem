@@ -1,0 +1,27 @@
+
+.label{
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}
+.button { 
+    -fx-background-color: blue; 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+}
+.button:hover{
+    -fx-translate-y: 1;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30px;
+}
+.root{
+    -fx-background-color: #F3F3F9;
+}
+.about-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 25px;
+}

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="fleetAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.FleetGUI.FleetGUI">
+<AnchorPane fx:id="fleetAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" stylesheets="@fleet.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.FleetGUI.FleetGUI">
    <children>
       <HBox alignment="BOTTOM_LEFT" layoutX="58.0" layoutY="42.0" prefHeight="656.0" prefWidth="731.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -30,7 +30,7 @@
                   <Insets left="25.0" />
                </HBox.margin>
             </GridPane>
-            <AnchorPane prefHeight="616.0" prefWidth="425.0" style="-fx-background-color: grey;">
+            <AnchorPane fx:id="addPane" prefHeight="616.0" prefWidth="425.0">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
