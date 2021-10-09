@@ -1,0 +1,16 @@
+.back {
+    -fx-background-color: white;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.label {
+    -fx-text-fill: grey;
+    -fx-font-weight: bold;
+}.labelinfo {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

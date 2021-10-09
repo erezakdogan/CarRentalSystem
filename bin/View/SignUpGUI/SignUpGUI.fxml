@@ -5,17 +5,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signupAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignUpGUI.SignUpGUI">
+<AnchorPane fx:id="signupAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="580.0" style="-fx-background-color: white;" stylesheets="@signUp.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SignUpGUI.SignUpGUI">
    <children>
-      <Label layoutX="126.0" layoutY="125.0" text="Sign Up" />
       <Button fx:id="signupGoogle" alignment="CENTER" layoutX="117.0" layoutY="176.0" mnemonicParsing="false" prefWidth="369.0" text="Sign up with Google" textAlignment="CENTER">
          <graphic>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/icons8_google_96px_1.png" />
+               </image></ImageView>
          </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Button>
       <Separator layoutX="117.0" layoutY="255.0" prefHeight="0.0" prefWidth="370.0" />
       <Label alignment="CENTER" layoutX="232.0" layoutY="246.0" prefHeight="18.0" prefWidth="138.0" style="-fx-background-color: white;" text="or Sign up with Email" />
@@ -37,7 +43,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="signupButton" alignment="CENTER" layoutX="117.0" layoutY="592.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="370.0" text="Sign Up" textAlignment="CENTER" />
+      <Button fx:id="signupButton" alignment="CENTER" layoutX="117.0" layoutY="592.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="370.0" text="Sign Up" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label alignment="CENTER" layoutX="217.0" layoutY="563.0" style="-fx-background-color: white;" text="Terms &amp; Conditions" />
       <CheckBox fx:id="signupTerms" layoutX="118.0" layoutY="563.0" mnemonicParsing="false" text="I Agree to the " />
       <Label alignment="CENTER" layoutX="120.0" layoutY="673.0" style="-fx-background-color: white;" text="2021 Erez Akdogan">

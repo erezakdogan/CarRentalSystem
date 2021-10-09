@@ -1,0 +1,26 @@
+
+.button { 
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 30px;
+    -fx-text-fill: black;
+    -fx-text-weigh: 30;
+}
+.button:hover{
+    -fx-translate-y: 1;
+}
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 4px;
+}
+
+.check-box:determinate .box{
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
+
+.forgot:hover{
+    -fx-translate-y: 1;
+}

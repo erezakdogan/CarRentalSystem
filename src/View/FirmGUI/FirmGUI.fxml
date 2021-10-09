@@ -2,26 +2,63 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id = "borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.FirmGUI">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.FirmGUI">
    <left>
-      <AnchorPane prefHeight="720.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="720.0" prefWidth="260.0" styleClass="anchorpane" stylesheets="@firm.css" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="firmName" alignment="CENTER" layoutX="32.0" layoutY="61.0" prefHeight="20.0" prefWidth="177.0" text="Firm Name" />
             <VBox layoutX="20.0" layoutY="106.0" prefWidth="214.0" spacing="4.0">
                <children>
-                  <Button fx:id="firmMainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Main Menu" />
-                  <Button fx:id="firmRentsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Rents" />
-                  <Button fx:id="firmFleetButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Fleet" />
+                  <Button fx:id="firmMainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="51.0" prefWidth="214.0" text="Main Menu">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 30;">
+                           <image>
+                              <Image url="@../../Icons/icons8_health_data_48px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="firmRentsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Rents">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 30;">
+                           <image>
+                              <Image url="@../../Icons/icons8_list_64px_1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="firmFleetButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" style="-fx-line-spacing: 25px;" text="Fleet">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/icons8_traffic_jam_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
             <VBox layoutX="20.0" layoutY="580.0" prefWidth="214.0" spacing="4.0">
                <children>
-                  <Button fx:id="firmProfileButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Firm Profile" />
-                  <Button fx:id="firmLogoutButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Log out" />
+                  <Button fx:id="firmProfileButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Firm Profile">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/icons8_account_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="firmLogoutButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="51.0" prefWidth="214.0" text="Log out">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Icons/icons8_logout_rounded_left_64px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
          </children>

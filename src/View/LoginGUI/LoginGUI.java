@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.plaf.FontUIResource;
+
 import View.LoginGUI.SignInGUI.SignInGUI;
 import View.SignUpGUI.SignUpGUI;
 import javafx.fxml.FXML;
@@ -12,7 +14,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.text.Font;
 import javafx.fxml.FXMLLoader;
 public class LoginGUI {
 
@@ -60,7 +62,8 @@ public class LoginGUI {
         assert signinCreate != null : "fx:id=\"signinCreate\" was not injected: check your FXML file 'LoginGUI.fxml'.";
         assert signinButton != null : "fx:id=\"signinButton\" was not injected: check your FXML file 'LoginGUI.fxml'.";
         assert partnerButton != null : "fx:id=\"signinButton\" was not injected: check your FXML file 'LoginGUI.fxml'.";
-       
+    
+        
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(SignInGUI.class.getResource("SignInGUI.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
