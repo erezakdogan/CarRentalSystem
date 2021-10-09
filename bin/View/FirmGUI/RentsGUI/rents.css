@@ -1,0 +1,17 @@
+.root {
+    -fx-background-color: #F3F3F9;
+}
+.about-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 25px;
+}
+.label {
+    -fx-font-weight: bold;
+    -fx-text-fill: grey;
+}
+.lab {
+    -fx-text-fill: black;
+}
+#firmRentsGrid {
+    -fx-background-color: transparent;
+}

@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.RentsGUI.RentsGUI">
    <children>
-      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox styleClass="root" stylesheets="@rents.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <GridPane fx:id="firmRentsGrid" prefHeight="720.0" prefWidth="720.0">
               <columnConstraints>
@@ -25,14 +25,14 @@
             </GridPane>
             <AnchorPane prefHeight="720.0" prefWidth="310.0">
                <children>
-                  <Pane layoutX="22.0" layoutY="63.0" prefHeight="258.0" prefWidth="262.0">
+                  <Pane layoutX="22.0" layoutY="63.0" prefHeight="258.0" prefWidth="262.0" styleClass="about-pane">
                      <children>
-                        <Label layoutX="14.0" layoutY="33.0" text="RentNum" />
-                        <Label layoutX="14.0" layoutY="72.0" text="Rented Car" />
-                        <Label layoutX="14.0" layoutY="192.0" text="Total Revenue" />
-                        <Label fx:id="firmRentNum" layoutX="82.0" layoutY="35.0" text="RentNum" />
-                        <Label fx:id="firmActiveRentCar" layoutX="113.0" layoutY="72.0" text="RentNum" />
-                        <Label fx:id="firmTotRevenue" layoutX="134.0" layoutY="193.0" text="RentNum" />
+                        <Label layoutX="14.0" layoutY="33.0" text="Rent Number: " />
+                        <Label layoutX="14.0" layoutY="72.0" text="Rented Car:" />
+                        <Label layoutX="14.0" layoutY="192.0" text="Total Revenue:" />
+                        <Label fx:id="firmRentNum" layoutX="153.0" layoutY="32.0" styleClass="lab" text="RentNum" />
+                        <Label fx:id="firmActiveRentCar" layoutX="156.0" layoutY="72.0" styleClass="lab" text="RentNum" />
+                        <Label fx:id="firmTotRevenue" layoutX="164.0" layoutY="190.0" styleClass="lab" text="RentNum" />
                      </children>
                   </Pane>
                </children>
