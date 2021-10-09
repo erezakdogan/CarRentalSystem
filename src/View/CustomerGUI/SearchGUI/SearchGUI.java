@@ -55,6 +55,7 @@ public class SearchGUI {
         assert searchCity != null : "fx:id=\"searchCity\" was not injected: check your FXML file 'SearchGUI.fxml'.";
         assert typeVehicle != null : "fx:id=\"typeVehicle\" was not injected: check your FXML file 'SearchGUI.fxml'.";
         typeVehicle.getItems().addAll("Sedan", "Suv", "HeatchBack");
+        
         buttonSearchRents.setOnAction(arg0 -> {            
             availablesGrid.getChildren().clear();
             listAvailables();
