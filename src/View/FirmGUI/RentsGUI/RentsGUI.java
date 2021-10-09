@@ -3,8 +3,7 @@ package View.FirmGUI.RentsGUI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import View.FirmGUI.FirmGUI;
-import View.FirmGUI.RentItem.RentItem;
+ import View.FirmGUI.RentItem.RentItem;
 
 import java.io.IOException;
 

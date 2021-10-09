@@ -2,10 +2,7 @@ package View.LoginGUI;
  
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-
-import javax.swing.plaf.FontUIResource;
-
+import java.util.ResourceBundle; 
 import View.LoginGUI.SignInGUI.SignInGUI;
 import View.SignUpGUI.SignUpGUI;
 import javafx.fxml.FXML;
@@ -14,8 +11,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.fxml.FXMLLoader;
+ import javafx.fxml.FXMLLoader;
 public class LoginGUI {
 
     @FXML
