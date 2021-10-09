@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1020.0" styleClass="back" stylesheets="@main.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FirmGUI.MainGUI.MainGUI">
          <children>
-            <AnchorPane layoutX="694.0" layoutY="62.0" prefHeight="630.0" prefWidth="304.0" style="-fx-background-color: #768cc2;">
+            <AnchorPane layoutX="694.0" layoutY="62.0" prefHeight="630.0" prefWidth="304.0" styleClass="anchor-pane">
          <children>
             <Label fx:id="firmName" layoutX="14.0" layoutY="14.0" styleClass="labelinfo" text="Firm Name">
                <font>

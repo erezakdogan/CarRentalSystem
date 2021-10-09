@@ -10,7 +10,18 @@
 .label {
     -fx-text-fill: grey;
     -fx-font-weight: bold;
-}.labelinfo {
-    -fx-text-fill: white;
+}
+.labelinfo {
+    -fx-text-fill: grey;
     -fx-font-weight: bold;
+}
+
+.anchor-pane{
+    -fx-background-color: white;
+    -fx-background-radius: 20px;
+
+}
+
+#earningsGraph{
+    -fx-background-radius: 20px;
 }

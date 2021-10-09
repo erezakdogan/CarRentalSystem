@@ -16,7 +16,7 @@
 }
 .anchorpane {
     -fx-background-color: white;
-    -fx-background-radius: 25px;
+    -fx-background-radius: 0 25px  25px 0;
 }
 .image-view {
     -fx-translate-x:30;

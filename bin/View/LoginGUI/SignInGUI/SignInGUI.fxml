@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signinAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: white;" styleClass="forgot" stylesheets="@../loginCss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginGUI.SignInGUI.SignInGUI">
+<AnchorPane fx:id="signinAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: white;" stylesheets="@../loginCss.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginGUI.SignInGUI.SignInGUI">
          <children>
             <Button fx:id="signinGoogle" alignment="CENTER" layoutX="130.0" layoutY="191.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="440.0" style="-fx-background-color: white; -fx-border-color: GREY; -fx-border-radius: 30;" text="Sign in with Google" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="190.0">
                <graphic>

@@ -3,7 +3,7 @@
     -fx-background-radius: 8px;
     -fx-font-weight: bold;
     -fx-text-fill: grey;
-    -fx-alignment: LEFT;
+    -fx-alignment: left;
     -fx-graphic-text-gap:35px;
 
 }
@@ -16,7 +16,7 @@
 }
 .anchorpane {
     -fx-background-color: white;
-    -fx-background-radius: 25px;
+    -fx-background-radius: 0 25px  25px 0;
 }
 .image-view {
     -fx-translate-x:30;
